@@ -4,9 +4,6 @@ import java.io.*;
 import java.util.*;
 import javax.swing.Timer;
 
-//please for the love of god work
-
-
 public class Engine implements KeyListener, MouseListener{
 
 	public enum GameState{
@@ -128,20 +125,6 @@ public class Engine implements KeyListener, MouseListener{
 	}
 
 	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-
-	@Override
 	public void mouseClicked(MouseEvent e) {
 		int xpos = e.getX();
 		int ypos = e.getY();
@@ -205,10 +188,18 @@ public class Engine implements KeyListener, MouseListener{
 				display.repaint();
 			}
 		}
-		
-		
 	}
 
+	//Unused listener methods
+	
+	@Override
+	public void keyReleased(KeyEvent e) {
+	}
+	
+	@Override
+	public void keyTyped(KeyEvent e) {
+	}
+	
 	@Override
 	public void mouseEntered(MouseEvent arg0) {
 		// TODO Auto-generated method stub
@@ -232,7 +223,4 @@ public class Engine implements KeyListener, MouseListener{
 		// TODO Auto-generated method stub
 		
 	}
-
-
-
 }
