@@ -28,8 +28,7 @@ public class Display extends JComponent{
 			
 		case RUN:
 			//plays game
-			g.setColor(Color.BLACK);
-			g.drawString("RUNNING", getWidth()/2, getHeight()/2);
+			engine.drawRShell(g);
 			break;
 		
 		case END:

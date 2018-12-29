@@ -20,9 +20,12 @@ public class Engine implements KeyListener, MouseListener{
 	static Font h1 = new Font(Font.SANS_SERIF, Font.BOLD, 100);
 	static Font h2 = new Font(Font.SANS_SERIF, Font.BOLD, 50);
 	static Font text = new Font(Font.SANS_SERIF, Font.BOLD, 30);
+	static Font stext = new Font(Font.SANS_SERIF, Font.PLAIN, 20);
 	Color a, b, c, d, e;
 	static Color dgrey = new Color(82, 82, 82);
 	static Color offwhite = new Color(254, 253, 251);
+	
+	static int currentscore = 0;
 	
 	//Constructor
 	public Engine() {
@@ -120,19 +123,38 @@ public class Engine implements KeyListener, MouseListener{
 		hs.getScores();
 		Collections.sort(hs.arrScores, Collections.reverseOrder()); //resorts the list from highest to lowest
 		 
+		//title
 		g.setColor(dgrey);
 		g.setFont(h1);
 		g.drawString("High Scores", display.getWidth()/2-300, 200);
 		
+		//scores
 		g.setFont(h2);
 		 for (int i=0; i<10; i++) {
 	           System.out.println(hs.arrScores.get(i)); 
 	           g.drawString(hs.arrScores.get(i), display.getWidth()/2-70, 310+50*i);
-	    }
-		
-		
+	    }	
 	}
+
+	public void drawRShell(Graphics g) {
+		
+		//Board background
+		g.setColor(new Color(169, 157, 143)); //soft grey-brown
+		g.fillRoundRect(display.getWidth()/2-300, display.getHeight()/2-300, 600 , 600, 20, 20);
+		
+		//Title
+		g.setFont(h1);
+		g.setColor(dgrey);
+		g.drawString("2048", display.getWidth()/2-300, display.getHeight()/2-350);
 	
+		//Current Score box
+		g.setColor(new Color(169, 157, 143)); //soft grey-brown
+		g.fillRoundRect(display.getWidth()/2+100, display.getHeight()/2-425, 200, 80, 15, 15);
+		g.setFont(stext);
+		g.setColor(offwhite);
+		g.drawString("Score", display.getWidth()/2+175, display.getHeight()/2-400);
+	
+	}
 	
 	@Override
  	public void keyPressed(KeyEvent e) {
@@ -206,7 +228,6 @@ public class Engine implements KeyListener, MouseListener{
 	}
 
 	//Unused listener methods
-	
 	@Override
 	public void keyReleased(KeyEvent e) {
 	}
@@ -216,26 +237,18 @@ public class Engine implements KeyListener, MouseListener{
 	}
 	
 	@Override
-	public void mouseEntered(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
+	public void mouseEntered(MouseEvent arg0) {	
 	}
 
 	@Override
 	public void mouseExited(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
-	public void mousePressed(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
+	public void mousePressed(MouseEvent arg0) {	
 	}
 
 	@Override
-	public void mouseReleased(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
+	public void mouseReleased(MouseEvent arg0) {	
 	}
 }
