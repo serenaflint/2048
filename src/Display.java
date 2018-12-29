@@ -37,8 +37,6 @@ public class Display extends JComponent{
 			break;
 		
 		case HS:
-			g.setColor(Color.BLACK);
-			g.drawString("HIGH SCORES", getWidth()/2, getHeight()/2);
 			engine.drawHS(g);
 			break;
 			
