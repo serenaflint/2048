@@ -30,7 +30,6 @@ public class TextGame {
 	}
 	
 	//method for placing a new tile
-	//What it needs: A case for if there are no empty tiles
 	public static void onClickTiles() {
 		boolean blank = false;
 		int randRow = 0;
@@ -50,7 +49,7 @@ public class TextGame {
 	}
 	
 	public static void runGame() {
-	
+		
 	}
 	
 	//Prints game in grid format
