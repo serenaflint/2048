@@ -25,7 +25,7 @@ public class Engine implements KeyListener, MouseListener{
 	static Color dgrey = new Color(82, 82, 82);
 	static Color offwhite = new Color(254, 253, 251);
 	
-	static int currentscore = 0;
+	static int cscore = 0;
 	
 	//Constructor
 	public Engine() {
@@ -71,6 +71,7 @@ public class Engine implements KeyListener, MouseListener{
 		g.drawString("Options", display.getWidth()/2-60, display.getHeight()/2+280);
 	}
 	
+	//Draws Options Menu
 	public void drawOptions(Graphics g) {
 		colors.setCurrentColors();
 		
@@ -112,6 +113,7 @@ public class Engine implements KeyListener, MouseListener{
 		
 	}
 	
+	//Draws High Scores Menu
 	public void drawHS(Graphics g) {
 		//Main Menu (return to)
 		g.setColor(colors.getC());
@@ -136,6 +138,7 @@ public class Engine implements KeyListener, MouseListener{
 	    }	
 	}
 
+	//Draws basic elements of the running game
 	public void drawRShell(Graphics g) {
 		
 		//Board background
@@ -153,7 +156,23 @@ public class Engine implements KeyListener, MouseListener{
 		g.setFont(stext);
 		g.setColor(offwhite);
 		g.drawString("Score", display.getWidth()/2+175, display.getHeight()/2-400);
+		g.setFont(text);
+		g.drawString(formattedScore(), display.getWidth()/2+160, display.getHeight()/2-360);
+		
+	}
 	
+	public String formattedScore() {
+		if(cscore < 10) {
+			return "0000" + cscore;
+		} else if(cscore < 100) {
+			return "000" + cscore;
+		} else if(cscore < 1000) {
+			return "00" + cscore;
+		} else if(cscore < 10000) {
+			return "0" + cscore;
+		} else {
+			return "" + cscore;
+		}
 	}
 	
 	@Override
