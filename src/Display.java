@@ -43,9 +43,7 @@ public class Display extends JComponent{
 			break;
 			
 		case OPTIONS:
-			//configuration and all that fun stuff
-			g.setColor(Color.BLACK);
-			g.drawString("OPTIONS", getWidth()/2, getHeight()/2);
+			engine.drawOptions(g);
 			break;
 		}
 	}

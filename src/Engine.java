@@ -11,21 +11,18 @@ public class Engine implements KeyListener, MouseListener{
 		MENU, RUN, END, OPTIONS, HS
 	}
 	
+	public GameState state;
+	
 	public static Display display;
 	public static Write write;
 	public static Colors colors;
 	
-	public GameState state;
-	
 	static Font h1 = new Font(Font.SANS_SERIF, Font.BOLD, 100);
-	static Font h2 = new Font(Font.SANS_SERIF, Font.BOLD, 60);
+	static Font h2 = new Font(Font.SANS_SERIF, Font.BOLD, 50);
 	static Font text = new Font(Font.SANS_SERIF, Font.BOLD, 30);
 	Color a, b, c, d, e;
 	static Color dgrey = new Color(82, 82, 82);
 	static Color offwhite = new Color(254, 253, 251);
-	static Color lorange = new Color(240, 197, 144);
-	static Color lred = new Color(240, 149, 144);
-	static Color lyellow = new Color(240, 229, 144);
 	
 	//Constructor
 	public Engine() {
@@ -70,9 +67,34 @@ public class Engine implements KeyListener, MouseListener{
 		g.drawString("Options", display.getWidth()/2-60, display.getHeight()/2+280);
 	}
 	
+	public void drawOptions(Graphics g) {
+		colors.setCurrentColors();
+		
+		//titles
+		g.setFont(h1);
+		g.setColor(dgrey);
+		g.drawString("Options", display.getWidth()/2-180, 200);
+		
+		g.setFont(h2);
+		g.drawString("Color Scheme", 75, 340);
+		
+		//boxes
+		g.setColor(colors.dW);
+		g.fillRoundRect(100, 380, 280, 60, 20, 15);
+		g.setColor(colors.dC);
+		g.fillRoundRect(100, 460, 280, 60, 20, 15);
+		
+		//text in the boxes
+		g.setColor(offwhite);
+		g.setFont(text);
+		g.drawString("Warm", 190, 420);
+		g.drawString("Cool", 200, 500);
+		
+	}
+	
 	
 	@Override
-	public void keyPressed(KeyEvent e) {
+ 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -113,6 +135,9 @@ public class Engine implements KeyListener, MouseListener{
 				state = GameState.OPTIONS;
 				display.repaint();
 			}
+			break;
+		
+		case OPTIONS:
 			
 		}
 		

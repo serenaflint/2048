@@ -91,6 +91,27 @@ public class Colors {
 	Color dC = new Color(186, 173, 204); //soft light purple
 	Color eC = new Color(165, 144, 157); //soft medium purple
 	
+	//Pastel Scheme
+	Color aP = new Color(255, 242, 249); //very light pink
+	Color bP = new Color(255, 226, 254); //soft pink
+	Color cP = new Color(246, 148, 193); //pastel pink
+	Color dP = new Color(179, 179, 241); //lavender
+	Color eP = new Color(82, 222, 229); //pastel blue?
+	
+	//Natural Scheme
+	Color aN = new Color(238, 247, 217); //green-beige
+	Color bN = new Color(164, 180, 148); //soft medium green
+	Color cN = new Color(113, 124, 137); //slate
+	Color dN = new Color(107, 98, 84); //soft medium brown
+	Color eN = new Color(75, 59, 64); //plum
+	
+	//Grey Scheme
+	Color aG = new Color(237, 237, 237);
+	Color bG = new Color(201, 201, 201);
+	Color cG = new Color(145, 145, 145);
+	Color dG = new Color(107, 107, 107);
+	Color eG = new Color(84, 84, 84);
+	
 	public void setCurrentColors() {
 		
 		switch(scheme) {
@@ -112,12 +133,27 @@ public class Colors {
 			break;
 			
 		case GREY:
+			setA(aG);
+			setB(bG);
+			setC(cG);
+			setD(dG);
+			setE(eG);
 			break;
 		
 		case NATURAL:
+			setA(aN);
+			setB(bN);
+			setC(cN);
+			setD(dN);
+			setE(eN);
 			break;
 		
 		case PASTEL:
+			setA(aP);
+			setB(bP);
+			setC(cP);
+			setD(dP);
+			setE(eP);
 			break;
 			
 		}
