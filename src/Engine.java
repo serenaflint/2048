@@ -81,19 +81,45 @@ public class Engine implements KeyListener, MouseListener{
 		g.drawString("Color Scheme", 75, 340);
 		
 		//boxes
-		g.setColor(colors.dW);
+		g.setColor(colors.cW);
 		g.fillRoundRect(100, 380, 280, 60, 20, 15);
-		g.setColor(colors.dC);
+		g.setColor(colors.bC);
 		g.fillRoundRect(100, 460, 280, 60, 20, 15);
+		g.setColor(colors.cP);
+		g.fillRoundRect(100, 540, 280, 60, 20, 15);
+		g.setColor(colors.bN);
+		g.fillRoundRect(100, 620, 280, 60, 20, 15);
+		g.setColor(colors.cG);
+		g.fillRoundRect(100, 700, 280, 60, 20, 15);
 		
 		//text in the boxes
 		g.setColor(offwhite);
 		g.setFont(text);
-		g.drawString("Warm", 190, 420);
-		g.drawString("Cool", 200, 500);
+		g.drawString("Warm", 195, 420);
+		g.drawString("Cool", 205, 500);
+		g.drawString("Pastel", 190, 580);
+		g.drawString("Natural", 185, 660);
+		g.drawString("Grey", 200, 740);
+		
+		//Main Menu (return to)
+		g.setColor(colors.getC());
+		g.fillRoundRect(display.getWidth()/2-140, display.getHeight()/2+360, 280, 60, 20, 15);
+		g.setColor(offwhite);
+		g.setFont(text);
+		g.drawString("Main Menu", display.getWidth()/2-80, display.getHeight()/2+400);
 		
 	}
 	
+	public void drawHS(Graphics g) {
+		//Main Menu (return to)
+		g.setColor(colors.getC());
+		g.fillRoundRect(display.getWidth()/2-140, display.getHeight()/2+360, 280, 60, 20, 15);
+		g.setColor(offwhite);
+		g.setFont(text);
+		g.drawString("Main Menu", display.getWidth()/2-80, display.getHeight()/2+400);
+			
+		
+	}
 	
 	@Override
  	public void keyPressed(KeyEvent e) {
@@ -140,7 +166,44 @@ public class Engine implements KeyListener, MouseListener{
 			break;
 		
 		case OPTIONS:
+			if((xpos >= 100 && xpos <= 380) && (ypos >= 380 && ypos <= 440)) {
+				//If mouse is within Warm box...
+				colors.setScheme("WARM");
+				colors.setCurrentColors();
+				display.repaint();
+			} else if((xpos >= 100 && xpos <= 380) && (ypos >= 460 && ypos <= 520)) {
+				//If mouse is within Cool box...
+				colors.setScheme("COOL");
+				colors.setCurrentColors();
+				display.repaint();
+			} else if((xpos >= 100 && xpos <= 380) && (ypos >= 540 && ypos <= 600)) {
+				//If mouse is within Pastel box...
+				colors.setScheme("PASTEL");
+				colors.setCurrentColors();
+				display.repaint();
+			} else if((xpos >= 100 && xpos <= 380) && (ypos >= 620 && ypos <= 680)) {
+				//If mouse is within Natural box...
+				colors.setScheme("NATURAL");
+				colors.setCurrentColors();
+				display.repaint();
+			} else if((xpos >= 100 && xpos <= 380) && (ypos >= 700 && ypos <= 760)) {
+				//If mouse is within Grey box...
+				colors.setScheme("GREY");
+				colors.setCurrentColors();
+				display.repaint();
+			} else if((xpos >= display.getWidth()/2-140 && xpos <= display.getWidth()/2+140) && (ypos >= display.getHeight()/2+360 && ypos <= display.getHeight()/2+420)) {
+				//If mouse is within Main Menu box...
+				state = GameState.MENU;
+				display.repaint();
+			}
+			break;
 			
+		case HS:
+			if((xpos >= display.getWidth()/2-140 && xpos <= display.getWidth()/2+140) && (ypos >= display.getHeight()/2+360 && ypos <= display.getHeight()/2+420)) {
+				//If mouse is within Main Menu box...
+				state = GameState.MENU;
+				display.repaint();
+			}
 		}
 		
 		
