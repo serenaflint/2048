@@ -1,9 +1,11 @@
 import java.awt.*;
 import javax.swing.JComponent;
 
+@SuppressWarnings("serial")
 public class Display extends JComponent{
 
 	public Engine engine;
+	public Colors colors;
 	
 	public Display(Engine engine) {
 		this.engine = engine;
