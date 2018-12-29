@@ -15,7 +15,6 @@ public class Engine implements KeyListener, MouseListener{
 	public static Display display;
 	public static Write write;
 	public static Colors colors;
-	public static HighScores hs;
 	
 	static Font h1 = new Font(Font.SANS_SERIF, Font.BOLD, 100);
 	static Font h2 = new Font(Font.SANS_SERIF, Font.BOLD, 50);
@@ -28,7 +27,6 @@ public class Engine implements KeyListener, MouseListener{
 	public Engine() {
 		display = new Display(this);
 		colors = new Colors(a, b, c, d, e);
-		hs = new HighScores();
 	}
 	
 	Display getDisplay() {
@@ -116,27 +114,14 @@ public class Engine implements KeyListener, MouseListener{
 		g.setColor(offwhite);
 		g.setFont(text);
 		g.drawString("Main Menu", display.getWidth()/2-80, display.getHeight()/2+400);
-		
-		hs.getScores();
-		Collections.sort(hs.arrScores, Collections.reverseOrder()); //resorts the list from highest to lowest
-		 
-		g.setColor(dgrey);
-		g.setFont(h1);
-		g.drawString("High Scores", display.getWidth()/2-300, 200);
-		
-		g.setFont(h2);
-		 for (int i=0; i<10; i++) {
-	           System.out.println(hs.arrScores.get(i)); 
-	           g.drawString(hs.arrScores.get(i), display.getWidth()/2-70, 310+50*i);
-	    }
-		
+			
 		
 	}
-	
 	
 	@Override
  	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
