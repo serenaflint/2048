@@ -5,31 +5,23 @@ public class TextGame {
 	//the grid boi
 	static int[][] gameGrid = new int[4][4];
 	
-	
-	public static void blankTile(int row, int col) {
+	public static void startingTiles() {
 		boolean blank = false;
 		int randRow = 0;
 		int randCol = 0;
-		while(blank == false) {
-			// create instance of Random class and finds random tile
-			Random rand = new Random(); 
-			randRow = rand.nextInt(4);	
-			randCol = rand.nextInt(4);
-			if(gameGrid[randRow][randCol] == 0) {
-				blank = true;
+		for(int i = 0; i < 2; i ++) {
+			while(blank == false) {
+				// create instance of Random class and finds random tile
+				Random rand = new Random(); 
+				randRow = rand.nextInt(4);	
+				randCol = rand.nextInt(4);
+				if(gameGrid[randRow][randCol] == 0) {
+					gameGrid[randRow][randCol] = 2;
+					blank = true;
+				}
 			}
+			blank = false;
 		}
-		row = randRow;
-		col = randCol;
-	}
-	public static void startingTiles() {
-		int row = 1;
-		int col = 1;
-		blankTile(row, col);
-		System.out.println(row + " " + col);
-		gameGrid[row][col] = 2;
-		blankTile(row, col);
-		gameGrid[row][col] = 2;
 		
 	}
 	public static void runGame() {
