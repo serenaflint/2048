@@ -5,7 +5,7 @@ import java.util.*;
 import javax.swing.Timer;
 
 
-public class Engine implements KeyListener{
+public class Engine implements KeyListener, MouseListener{
 
 	public enum GameState{
 		MENU, RUN, END, OPTIONS, HS
@@ -57,6 +57,9 @@ public class Engine implements KeyListener{
 		g.drawString("Options", display.getWidth()/2-60, display.getHeight()/2+280);
 	}
 	
+	
+
+	
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
@@ -74,5 +77,61 @@ public class Engine implements KeyListener{
 		// TODO Auto-generated method stub
 		
 	}
+
+	
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		int xpos = e.getX();
+		int ypos = e.getY();
+		System.out.println(xpos + ", " + ypos);
+		
+		switch(state) {
+		
+		case MENU:
+			if((xpos >= display.getWidth()/2-140 && xpos <= display.getWidth()/2+140) && (ypos >= display.getHeight()/2+80 && ypos <= display.getHeight()/2+140)) {
+				//If mouse is within Play Game box
+				state = GameState.RUN;
+				display.repaint();
+			} else if((xpos >= display.getWidth()/2-140 && xpos <= display.getWidth()/2+140) && (ypos >= display.getHeight()/2+160 && ypos <= display.getHeight()/2+220)) {
+				//If mouse is within High Scores box
+				state = GameState.HS;
+				display.repaint();
+			} else if((xpos >= display.getWidth()/2-140 && xpos <= display.getWidth()/2+140) && (ypos >= display.getHeight()/2+240 && ypos <= display.getHeight()/2+300)) {
+				//If mouse is within Options box
+				state = GameState.HS;
+				display.repaint();
+			}
+			
+		}
+		
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 
 }
