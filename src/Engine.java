@@ -24,6 +24,7 @@ public class Engine implements KeyListener, MouseListener{
 	Color a, b, c, d, e;
 	static Color dgrey = new Color(82, 82, 82);
 	static Color offwhite = new Color(254, 253, 251);
+	static boolean pause = false;
 	
 	static int cscore = 0;
 	
@@ -34,6 +35,7 @@ public class Engine implements KeyListener, MouseListener{
 		hs = new HighScores();
 	}
 	
+	//Returns current display
 	Display getDisplay() {
 		return display;
 	}
@@ -109,8 +111,11 @@ public class Engine implements KeyListener, MouseListener{
 		g.fillRoundRect(display.getWidth()/2-140, display.getHeight()/2+360, 280, 60, 20, 15);
 		g.setColor(offwhite);
 		g.setFont(text);
-		g.drawString("Main Menu", display.getWidth()/2-80, display.getHeight()/2+400);
-		
+		if(!pause) {
+			g.drawString("Main Menu", display.getWidth()/2-80, display.getHeight()/2+400);
+		} else if(pause) {
+			g.drawString("Return", display.getWidth()/2-50, display.getHeight()/2+400);
+		}
 	}
 	
 	//Draws High Scores Menu
@@ -157,8 +162,20 @@ public class Engine implements KeyListener, MouseListener{
 		g.setColor(offwhite);
 		g.drawString("Score", display.getWidth()/2+175, display.getHeight()/2-400);
 		g.setFont(text);
-		g.drawString(formattedScore(), display.getWidth()/2+160, display.getHeight()/2-360);
+		g.drawString(formattedScore(), display.getWidth()/2+158, display.getHeight()/2-360);
 		
+		//Main Menu box
+		colors.setCurrentColors();
+		g.setColor(colors.getC());
+		g.fillRoundRect(display.getWidth()/2-300, display.getHeight()/2+340, 260, 60, 15, 15);
+		g.setColor(offwhite);
+		g.drawString("Main Menu", display.getWidth()/2-250, display.getHeight()/2+380);
+		
+		//Options box
+		g.setColor(colors.getD());
+		g.fillRoundRect(display.getWidth()/2+40, display.getHeight()/2+340, 260, 60, 15, 15);
+		g.setColor(offwhite);
+		g.drawString("Options", display.getWidth()/2+115, display.getHeight()/2+380);
 	}
 	
 	public String formattedScore() {
@@ -231,8 +248,13 @@ public class Engine implements KeyListener, MouseListener{
 				colors.setCurrentColors();
 				display.repaint();
 			} else if((xpos >= display.getWidth()/2-140 && xpos <= display.getWidth()/2+140) && (ypos >= display.getHeight()/2+360 && ypos <= display.getHeight()/2+420)) {
-				//If mouse is within Main Menu box...
-				state = GameState.MENU;
+				//If mouse is within Main Menu/Return box...
+				if(!pause) {
+					state = GameState.MENU;
+				} else if(pause) {
+					state = GameState.RUN;
+					pause = false;
+				}
 				display.repaint();
 			}
 			break;
@@ -243,6 +265,21 @@ public class Engine implements KeyListener, MouseListener{
 				state = GameState.MENU;
 				display.repaint();
 			}
+			break;
+		
+		case RUN:
+			if((xpos >= display.getWidth()/2-300 && xpos <= display.getWidth()/2-40) && (ypos >= display.getHeight()/2+340 && ypos <= display.getHeight()/2+400)) {
+				//If mouse is within Main Menu box...
+				state = GameState.MENU;
+				//TODO RESTART GAME, THIS SHOULD PROBABLY END GAME
+				display.repaint();
+			} else if((xpos >= display.getWidth()/2+40 && xpos <= display.getWidth()/2+300) && (ypos >= display.getHeight()/2+340 && ypos <= display.getHeight()/2+400)) {
+				//If mouse is within Options box...
+				pause = true;
+				state = GameState.OPTIONS;
+				display.repaint();
+			}
+		
 		}
 	}
 
