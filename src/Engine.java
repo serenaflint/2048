@@ -24,8 +24,8 @@ public class Engine implements KeyListener, MouseListener{
 	Color a, b, c, d, e;
 	static Color dgrey = new Color(82, 82, 82);
 	static Color offwhite = new Color(254, 253, 251);
-	static boolean pause = false;
 	
+	static boolean pause = false;
 	static int cscore = 0;
 	
 	//Constructor

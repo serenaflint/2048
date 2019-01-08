@@ -85,25 +85,25 @@ public class Colors {
 	Color eW = new Color(235, 116, 109); //soft medium red
 	
 	//Cool Scheme
-	Color aC = new Color(232, 237, 218); //cool beige
-	Color bC = new Color(182, 219, 215); //soft light teal
-	Color cC = new Color(167, 207, 239); //soft light blue
-	Color dC = new Color(186, 173, 204); //soft light purple
-	Color eC = new Color(165, 144, 157); //soft medium purple
+	Color aC = new Color(201, 201, 201); //light grey
+	Color bC = new Color(168, 206, 221); //soft light blue
+	Color cC = new Color(129, 160, 195); //soft medium blue
+	Color dC = new Color(103, 126, 159); //slate
+	Color eC = new Color(68, 112, 152); //soft dark blue
 	
 	//Pastel Scheme
-	Color aP = new Color(255, 242, 249); //very light pink
-	Color bP = new Color(255, 226, 254); //soft pink
-	Color cP = new Color(246, 148, 193); //pastel pink
-	Color dP = new Color(179, 179, 241); //lavender
-	Color eP = new Color(82, 222, 229); //pastel blue?
+	Color aP = new Color(255, 253, 234); //eggshell
+	Color bP = new Color(237, 237, 237); //light grey?
+	Color cP = new Color(202, 210, 236); //light lavender
+	Color dP = new Color(245, 183, 212); //pastel pink
+	Color eP = new Color(214, 235, 226); //pastel green
 	
 	//Natural Scheme
-	Color aN = new Color(238, 247, 217); //green-beige
-	Color bN = new Color(164, 180, 148); //soft medium green
-	Color cN = new Color(113, 124, 137); //slate
-	Color dN = new Color(107, 98, 84); //soft medium brown
-	Color eN = new Color(75, 59, 64); //plum
+	Color aN = new Color(164, 154, 127); //light brown
+	Color bN = new Color(152, 145, 126); //slightly darker brown
+	Color cN = new Color(129, 145, 127); //green
+	Color dN = new Color(107, 134, 123); //slightly darker green
+	Color eN = new Color(92, 117, 113); //darker green
 	
 	//Grey Scheme
 	Color aG = new Color(237, 237, 237);
