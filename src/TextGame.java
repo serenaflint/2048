@@ -48,6 +48,10 @@ public class TextGame {
 		}
 	}
 	
+	public static void moveDown() {
+		//for each col, for each row, starting at gameGrid[3][0], check for a first digit, then for a second, compare, add
+	}
+	
 	public static void runGame() {
 		
 	}
