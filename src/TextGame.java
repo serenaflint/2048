@@ -49,7 +49,21 @@ public class TextGame {
 	}
 	
 	public static void moveDown() {
+		int val = 0;
 		//for each col, for each row, starting at gameGrid[3][0], check for a first digit, then for a second, compare, add
+		for (int col = 0; col < gameGrid.length; col++) {// i loop
+			for (int row = 0; row < gameGrid.length-1; row++) {// j loop
+				if (gameGrid[row + 1][col] == 0) {
+					gameGrid[row + 1][col] = gameGrid[row][col];
+					gameGrid[row][col] = 0;
+				}// end of if
+				else if (gameGrid[row + 1][col] == gameGrid[row][col]) {
+					val = gameGrid[row + 1][col] * 2;
+					gameGrid[row][col] = 0;
+					gameGrid[row + 1][col] = val;
+					val = 0;
+				}// end of else
+			}// end of j loop
 	}
 	
 	public static void runGame() {
