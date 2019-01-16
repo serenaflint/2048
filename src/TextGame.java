@@ -65,7 +65,10 @@ public class TextGame {
 						gameGrid[row][col] = val;
 						val = 0;
 						break;
-					}// end of else
+					} // end of else
+					else if (gameGrid[row][col] != gameGrid[compare][col] && gameGrid[row][col]!=0 && gameGrid[compare][col]!=0) {
+						break;
+					} // end of else
 				}// end of compare loop
 			}//end of row loop
 		}// end of col loop 
