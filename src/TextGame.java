@@ -99,6 +99,15 @@ public class TextGame {
 		onClickTiles();
 		printGame();
 		onClickTiles();
+		onClickTiles();
+		onClickTiles();
+		onClickTiles();
+		onClickTiles();
+		onClickTiles();
+		onClickTiles();
+		onClickTiles();
+		onClickTiles();
+		onClickTiles();
 		printGame();
 		moveDown();
 		printGame();
