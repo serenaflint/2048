@@ -178,6 +178,7 @@ public class Engine implements KeyListener, MouseListener{
 		g.drawString("Options", display.getWidth()/2+115, display.getHeight()/2+380);
 	}
 	
+	//Formats score to look more populated
 	public String formattedScore() {
 		if(cscore < 10) {
 			return "0000" + cscore;
