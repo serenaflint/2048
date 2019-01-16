@@ -104,7 +104,7 @@ public class TextGame {
 	
 	public static void moveLeft() {
 		int val = 0;
-		//for each row, for each col, starting at gameGrid[0][3], compares it to each digit in the col
+		//for each row, for each col, starting at gameGrid[0][0], compares it to each digit in the col
 		for (int row = 0; row < gameGrid.length; row++) {// col loop
 			for (int col = 0; col < gameGrid.length; col++) {// row loop
 				for(int compare = col+1; compare<gameGrid.length; compare++) {
@@ -120,7 +120,7 @@ public class TextGame {
 						val = 0;
 						break;
 					} // end of else
-					else if (gameGrid[row][col] != gameGrid[row][compare] && gameGrid[row][col]!=0 && gameGrid[compare][col]!=0) {
+					else if (gameGrid[row][col] != gameGrid[row][compare] && gameGrid[row][col]!=0 && gameGrid[row][compare]!=0) {
 						break;
 					} // end of else
 				}// end of compare loop
@@ -150,8 +150,6 @@ public class TextGame {
 		printGame();
 		onClickTiles();
 		printGame();
-		onClickTiles();
-		onClickTiles();
 		onClickTiles();
 		onClickTiles();
 		onClickTiles();
