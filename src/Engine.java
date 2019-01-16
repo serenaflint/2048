@@ -127,8 +127,9 @@ public class Engine implements KeyListener, MouseListener{
 		g.setFont(text);
 		g.drawString("Main Menu", display.getWidth()/2-80, display.getHeight()/2+400);
 		
+		hs.checkScores();
 		hs.getScores();
-		Collections.sort(hs.arrScores, Collections.reverseOrder()); //resorts the list from highest to lowest
+		Collections.sort(hs.arrScores, Collections.reverseOrder()); //re-sorts the list from highest to lowest
 		 
 		//title
 		g.setColor(dgrey);
@@ -138,8 +139,8 @@ public class Engine implements KeyListener, MouseListener{
 		//scores
 		g.setFont(h2);
 		 for (int i=0; i<10; i++) {
-	           System.out.println(hs.arrScores.get(i)); 
-	           g.drawString(hs.arrScores.get(i), display.getWidth()/2-70, 310+50*i);
+	         //System.out.println(hs.arrScores.get(i)); //used for debugging
+	         g.drawString(hs.arrScores.get(i), display.getWidth()/2-70, 310+50*i);
 	    }	
 	}
 
