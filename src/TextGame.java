@@ -50,9 +50,9 @@ public class TextGame {
 	
 	public static void moveDown() {
 		int val = 0;
-		//for each col, for each row, starting at gameGrid[3][0], check for a first digit, then for a second, compare, add
-		for (int col = 0; col < gameGrid.length; col++) {// i loop
-			for (int row = gameGrid.length-1; row >= 0; row--) {// j loop
+		//for each col, for each row, starting at gameGrid[3][0], compares it to each digit in the col
+		for (int col = 0; col < gameGrid.length; col++) {// col loop
+			for (int row = gameGrid.length-1; row >= 0; row--) {// row loop
 				for(int compare = row-1; compare>=0; compare--) {
 					
 					if (gameGrid[row][col] == 0) {
@@ -72,9 +72,7 @@ public class TextGame {
 				}// end of compare loop
 			}//end of row loop
 		}// end of col loop 
-		//God help us all I need to fix what happens when there 2, 2, 4, 2. 
-		//It should be 0, 4, 4, 2 but instead its 0, 2, 4, 4.
-		//When theres 0, 2, 4 , 2 it shouldn't change but it turns to 0, 0, 4, 4
+		onClickTiles();
 	}
 	
 	public static void runGame() {
@@ -98,6 +96,8 @@ public class TextGame {
 		printGame();
 		onClickTiles();
 		printGame();
+		onClickTiles();
+		onClickTiles();
 		onClickTiles();
 		onClickTiles();
 		onClickTiles();
