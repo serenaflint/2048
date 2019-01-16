@@ -52,18 +52,26 @@ public class TextGame {
 		int val = 0;
 		//for each col, for each row, starting at gameGrid[3][0], check for a first digit, then for a second, compare, add
 		for (int col = 0; col < gameGrid.length; col++) {// i loop
-			for (int row = 0; row < gameGrid.length-1; row++) {// j loop
-				if (gameGrid[row + 1][col] == 0) {
-					gameGrid[row + 1][col] = gameGrid[row][col];
-					gameGrid[row][col] = 0;
-				}// end of if
-				else if (gameGrid[row + 1][col] == gameGrid[row][col]) {
-					val = gameGrid[row + 1][col] * 2;
-					gameGrid[row][col] = 0;
-					gameGrid[row + 1][col] = val;
-					val = 0;
-				}// end of else
-			}// end of j loop
+			for (int row = gameGrid.length-1; row >= 0; row--) {// j loop
+				for(int compare = row-1; compare>=0; compare--) {
+					
+					if (gameGrid[row][col] == 0) {
+						gameGrid[row][col] = gameGrid[compare][col];
+						gameGrid[compare][col] = 0;
+					}// end of if
+					else if (gameGrid[row][col] == gameGrid[compare][col]) {
+						val = (gameGrid[row][col]) * 2;
+						gameGrid[compare][col] = 0;
+						gameGrid[row][col] = val;
+						val = 0;
+						break;
+					}// end of else
+				}// end of compare loop
+			}//end of row loop
+		}// end of col loop 
+		//God help us all I need to fix what happens when there 2, 2, 4, 2. 
+		//It should be 0, 4, 4, 2 but instead its 0, 2, 4, 4.
+		//When theres 0, 2, 4 , 2 it shouldn't change but it turns to 0, 0, 4, 4
 	}
 	
 	public static void runGame() {
@@ -88,6 +96,8 @@ public class TextGame {
 		onClickTiles();
 		printGame();
 		onClickTiles();
+		printGame();
+		moveDown();
 		printGame();
 	}
 
