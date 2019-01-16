@@ -75,6 +75,60 @@ public class TextGame {
 		onClickTiles();
 	}
 	
+	public static void moveUp() {
+		int val = 0;
+		//for each col, for each row, starting at gameGrid[0][0], compares it to each digit in the col
+		for (int col = 0; col < gameGrid.length; col++) {// col loop
+			for (int row = 0; row < gameGrid.length; row++) {// row loop
+				for(int compare = row+1; compare<gameGrid.length; compare++) {
+					
+					if (gameGrid[row][col] == 0) {
+						gameGrid[row][col] = gameGrid[compare][col];
+						gameGrid[compare][col] = 0;
+					}// end of if
+					else if (gameGrid[row][col] == gameGrid[compare][col]) {
+						val = (gameGrid[row][col]) * 2;
+						gameGrid[compare][col] = 0;
+						gameGrid[row][col] = val;
+						val = 0;
+						break;
+					} // end of else
+					else if (gameGrid[row][col] != gameGrid[compare][col] && gameGrid[row][col]!=0 && gameGrid[compare][col]!=0) {
+						break;
+					} // end of else
+				}// end of compare loop
+			}//end of row loop
+		}// end of col loop
+		onClickTiles();
+	}
+	
+	public static void moveLeft() {
+		int val = 0;
+		//for each row, for each col, starting at gameGrid[0][3], compares it to each digit in the col
+		for (int row = 0; row < gameGrid.length; row++) {// col loop
+			for (int col = 0; col < gameGrid.length; col++) {// row loop
+				for(int compare = col+1; compare<gameGrid.length; compare++) {
+					
+					if (gameGrid[row][col] == 0) {
+						gameGrid[row][col] = gameGrid[row][compare];
+						gameGrid[row][compare] = 0;
+					}// end of if
+					else if (gameGrid[row][col] == gameGrid[row][compare]) {
+						val = (gameGrid[row][col]) * 2;
+						gameGrid[row][compare] = 0;
+						gameGrid[row][col] = val;
+						val = 0;
+						break;
+					} // end of else
+					else if (gameGrid[row][col] != gameGrid[row][compare] && gameGrid[row][col]!=0 && gameGrid[compare][col]!=0) {
+						break;
+					} // end of else
+				}// end of compare loop
+			}//end of row loop
+		}// end of col loop
+	}// Problems so far! If theres a 0 between two numbers tha should combine, they don't combine, they just go next to each other
+	// ex: 2, 4, 0, 4 turns into 2, 4, 4, 0 instead of 2, 8, 0, 0
+	
 	public static void runGame() {
 		
 	}
@@ -109,7 +163,7 @@ public class TextGame {
 		onClickTiles();
 		onClickTiles();
 		printGame();
-		moveDown();
+		moveLeft();
 		printGame();
 	}
 
