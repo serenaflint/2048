@@ -55,6 +55,7 @@ public class TextGame {
 	
 	public void moveDown() {
 		int val = 0;
+		boolean tileMoved = false;
 		//for each col, for each row, starting at gameGrid[3][0], compares it to each digit in the col
 		for (int col = 0; col < gameGrid.length; col++) {// col loop
 			for (int row = gameGrid.length-1; row >= 0; row--) {// row loop
@@ -63,12 +64,14 @@ public class TextGame {
 					if (gameGrid[row][col] == 0) {
 						gameGrid[row][col] = gameGrid[compare][col];
 						gameGrid[compare][col] = 0;
+						tileMoved = true;
 					}// end of if
 					else if (gameGrid[row][col] == gameGrid[compare][col]) {
 						val = (gameGrid[row][col]) * 2;
 						gameGrid[compare][col] = 0;
 						gameGrid[row][col] = val;
 						val = 0;
+						tileMoved = true;
 						break;
 					} // end of else
 					else if (gameGrid[row][col] != gameGrid[compare][col] && gameGrid[row][col]!=0 && gameGrid[compare][col]!=0) {
@@ -77,7 +80,8 @@ public class TextGame {
 				}// end of compare loop
 			}//end of row loop
 		}// end of col loop 
-		onClickTiles();
+		if(tileMoved)
+			onClickTiles();
 	}
 	
 	public void moveUp() {
