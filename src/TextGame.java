@@ -119,12 +119,15 @@ public class TextGame {
 	
 	public void moveLeft() {
 		int val = 0;
+		boolean tileMoved = false;
 		//for each row, for each col, starting at gameGrid[0][0], compares it to each digit in the col
 		for (int row = 0; row < gameGrid.length; row++) {// col loop
 			for (int col = 0; col < gameGrid.length; col++) {// row loop
 				for(int compare = col+1; compare<gameGrid.length; compare++) {
 					
 					if (gameGrid[row][col] == 0) {
+						if(gameGrid[compare][col] != 0)
+							tileMoved = true;
 						gameGrid[row][col] = gameGrid[row][compare];
 						gameGrid[row][compare] = 0;
 					}// end of if
@@ -133,6 +136,7 @@ public class TextGame {
 						gameGrid[row][compare] = 0;
 						gameGrid[row][col] = val;
 						val = 0;
+						tileMoved = true;
 						break;
 					} // end of else
 					else if (gameGrid[row][col] != gameGrid[row][compare] && gameGrid[row][col]!=0 && gameGrid[row][compare]!=0) {
@@ -141,9 +145,9 @@ public class TextGame {
 				}// end of compare loop
 			}//end of row loop
 		}// end of col loop
-		onClickTiles();
-	}// Problems so far! If theres a 0 between two numbers tha should combine, they don't combine, they just go next to each other
-	// ex: 2, 4, 0, 4 turns into 2, 4, 4, 0 instead of 2, 8, 0, 0
+		if(tileMoved)
+			onClickTiles();
+	}
 	
 	public void moveRight() {
 		int val = 0;
