@@ -1,8 +1,4 @@
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.util.Random;
-
-import javax.swing.JPanel;
 
 public class TextGame {
 	

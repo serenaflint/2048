@@ -1,8 +1,6 @@
 import java.awt.*;
 import java.awt.event.*;
-import java.io.*;
 import java.util.*;
-import javax.swing.Timer;
 
 public class Engine implements KeyListener, MouseListener{
 
