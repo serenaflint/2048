@@ -18,6 +18,7 @@ public class Engine implements KeyListener, MouseListener{
 	
 	static Font h1 = new Font(Font.SANS_SERIF, Font.BOLD, 100);
 	static Font h2 = new Font(Font.SANS_SERIF, Font.BOLD, 50);
+	static Font tile = new Font(Font.SANS_SERIF, Font.BOLD, 75);
 	static Font text = new Font(Font.SANS_SERIF, Font.BOLD, 30);
 	static Font stext = new Font(Font.SANS_SERIF, Font.PLAIN, 20);
 	Color a, b, c, d, e;
@@ -185,10 +186,14 @@ public class Engine implements KeyListener, MouseListener{
 			for(int col = 0; col < txg.gameGrid[row].length; col++) {
 				if(txg.gameGrid[row][col] == 0) {
 					g.setColor(colors.emptyA);
-					g.fillRoundRect(display.getWidth()/2-292+148*col, display.getWidth()/2-292+148*row, 140, 140, 15, 15);
+					g.fillRoundRect(display.getWidth()/2-292+148*col, display.getHeight()/2-292+148*row, 140, 140, 15, 15);
+				
 				} else {
 					g.setColor(colors.getB());
-					g.fillRoundRect(display.getWidth()/2-292+148*col, display.getWidth()/2-292+148*row, 140, 140, 15, 15);
+					g.fillRoundRect(display.getWidth()/2-292+148*col, display.getHeight()/2-292+148*row, 140, 140, 15, 15);
+					g.setColor(offwhite);
+					g.setFont(tile);
+					g.drawString("" + txg.gameGrid[row][col], display.getWidth()/2-244+148*col, display.getHeight()/2-200+148*row);
 				}
 			}
 		}
