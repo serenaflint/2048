@@ -301,6 +301,7 @@ public class Engine implements KeyListener, MouseListener{
 				state = GameState.OPTIONS;
 				display.repaint();
 			}
+			break;
 			
 		default:
 			System.out.println("DEFAULT");
