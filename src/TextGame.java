@@ -181,7 +181,7 @@ public class TextGame {
 			onClickTiles();
 	}
 	
-	public boolean movesLeft() {
+	public boolean checkMoves() {
 		boolean movesLeft;
 		for (int row = 0; row < gameGrid.length; row++) {// row loop
 			for (int col = 0; col < gameGrid.length; col++) {// col loop
@@ -205,8 +205,8 @@ public class TextGame {
 					else
 						break;
 				}
-			}//end of row loop
-		}// end of col loop
+			}//end of row loop //should this be col?
+		}// end of col loop //should this be row?
 		return false;
 	}
 	

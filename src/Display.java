@@ -29,6 +29,7 @@ public class Display extends JComponent{
 		case RUN:
 			//plays game
 			engine.drawRShell(g);
+			engine.drawInitialGrid(g);
 			break;
 		
 		case END:

@@ -180,6 +180,20 @@ public class Engine implements KeyListener, MouseListener{
 		g.drawString("Options", display.getWidth()/2+115, display.getHeight()/2+380);
 	}
 	
+	public void drawInitialGrid(Graphics g) {
+		for(int row = 0; row < txg.gameGrid.length; row++) {
+			for(int col = 0; col < txg.gameGrid[row].length; col++) {
+				if(txg.gameGrid[row][col] == 0) {
+					g.setColor(colors.emptyA);
+					g.fillRoundRect(display.getWidth()/2-292+148*col, display.getWidth()/2-292+148*row, 140, 140, 15, 15);
+				} else {
+					g.setColor(colors.getB());
+					g.fillRoundRect(display.getWidth()/2-292+148*col, display.getWidth()/2-292+148*row, 140, 140, 15, 15);
+				}
+			}
+		}
+	}
+	
 	//Formats score to look more populated
 	public String formattedScore() {
 		if(cscore < 10) {
@@ -199,20 +213,36 @@ public class Engine implements KeyListener, MouseListener{
  	public void keyPressed(KeyEvent e) {
 		switch(e.getKeyCode()) {
 		case KeyEvent.VK_UP:
+			display.repaint();
 			txg.moveUp();
 			txg.printGame();
+			if(!txg.checkMoves()) {
+				System.out.println("GAME OVER");
+			}
 			break;
 		case KeyEvent.VK_DOWN:
+			display.repaint();
 			txg.moveDown();
 			txg.printGame();
+			if(!txg.checkMoves()) {
+				System.out.println("GAME OVER");
+			}
 			break;
 		case KeyEvent.VK_LEFT:
+			display.repaint();
 			txg.moveLeft();
 			txg.printGame();
+			if(!txg.checkMoves()) {
+				System.out.println("GAME OVER");
+			}
 			break;
 		case KeyEvent.VK_RIGHT:
+			display.repaint();
 			txg.moveRight();
 			txg.printGame();
+			if(!txg.checkMoves()) {
+				System.out.println("GAME OVER");
+			}
 			break;
 		}
 	}
