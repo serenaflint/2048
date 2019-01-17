@@ -151,6 +151,7 @@ public class TextGame {
 	
 	public void moveRight() {
 		int val = 0;
+		boolean tileMoved = false;
 		//for each row, for each col, starting at gameGrid[0][0], compares it to each digit in the col
 		for (int row = 0; row < gameGrid.length; row++) {// col loop
 			for (int col = gameGrid.length-1; col >= 0; col--) {// row loop
@@ -159,12 +160,15 @@ public class TextGame {
 					if (gameGrid[row][col] == 0) {
 						gameGrid[row][col] = gameGrid[row][compare];
 						gameGrid[row][compare] = 0;
+						if(gameGrid[compare][col] != 0)
+							tileMoved = true;
 					}// end of if
 					else if (gameGrid[row][col] == gameGrid[row][compare]) {
 						val = (gameGrid[row][col]) * 2;
 						gameGrid[row][compare] = 0;
 						gameGrid[row][col] = val;
 						val = 0;
+						tileMoved = true;
 						break;
 					} // end of else
 					else if (gameGrid[row][col] != gameGrid[row][compare] && gameGrid[row][col]!=0 && gameGrid[row][compare]!=0) {
@@ -173,7 +177,8 @@ public class TextGame {
 				}// end of compare loop
 			}//end of row loop
 		}// end of col loop
-		onClickTiles();
+		if(tileMoved)
+			onClickTiles();
 	}
 	
 	public static void runGame() {
