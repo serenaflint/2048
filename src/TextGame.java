@@ -187,30 +187,27 @@ public class TextGame {
 			for (int col = 0; col < gameGrid.length; col++) {// col loop
 				if(gameGrid[row][col] == 0)
 					return true;
-				else if()
-				for(int compare = col-1; compare>= 0; compare--) {
-					
-					if (gameGrid[row][col] == 0) {
-						gameGrid[row][col] = gameGrid[row][compare];
-						gameGrid[row][compare] = 0;
-						if(gameGrid[compare][col] != 0)
-							tileMoved = true;
-					}// end of if
-					else if (gameGrid[row][col] == gameGrid[row][compare]) {
-						val = (gameGrid[row][col]) * 2;
-						gameGrid[row][compare] = 0;
-						gameGrid[row][col] = val;
-						val = 0;
-						tileMoved = true;
+				else if(col == gameGrid.length-1 && row != gameGrid.length-1) {
+					if(gameGrid[row][col] == gameGrid[row+1][col])
+						return true;
+					else
 						break;
-					} // end of else
-					else if (gameGrid[row][col] != gameGrid[row][compare] && gameGrid[row][col]!=0 && gameGrid[row][compare]!=0) {
+				}
+				else if(col != gameGrid.length-1 && row == gameGrid.length-1) {
+					if(gameGrid[row][col] == gameGrid[row][col+1])
+						return true;
+					else
 						break;
-					} // end of else
-				}// end of compare loop
+				}
+				else {
+					if(gameGrid[row][col] == gameGrid[row][col+1] && gameGrid[row][col] == gameGrid[row+1][col])
+						return true;
+					else
+						break;
+				}
 			}//end of row loop
 		}// end of col loop
-		
+		return false;
 	}
 	
 	public static void runGame() {
