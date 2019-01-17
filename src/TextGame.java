@@ -113,7 +113,8 @@ public class TextGame {
 				}// end of compare loop
 			}//end of row loop
 		}// end of col loop
-		onClickTiles();
+		if(tileMoved)
+			onClickTiles();
 	}
 	
 	public void moveLeft() {
