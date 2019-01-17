@@ -195,6 +195,18 @@ public class TextGame {
 	     }
 		System.out.println("");
 	}
+	
+	public boolean movesExist() {
+		//if grid has a 0, true
+		//if a grid is full, check for two adjacent matching numbers
+			//if there are two adjacent matching numbers, true
+			//if no adjacent numbers, false
+		
+		//if false, game over
+		//if true, game continues
+		
+		return false;
+	}
 
 	/* public static void main(String[] args) {
 		// Alright sluts, we're making this textbased first
