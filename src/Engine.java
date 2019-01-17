@@ -16,6 +16,7 @@ public class Engine implements KeyListener, MouseListener{
 	public static Write write;
 	public static Colors colors;
 	public static HighScores hs;
+	public static TextGame txg;
 	
 	static Font h1 = new Font(Font.SANS_SERIF, Font.BOLD, 100);
 	static Font h2 = new Font(Font.SANS_SERIF, Font.BOLD, 50);
@@ -33,6 +34,7 @@ public class Engine implements KeyListener, MouseListener{
 		display = new Display(this);
 		colors = new Colors(a, b, c, d, e);
 		hs = new HighScores();
+		txg = new TextGame();
 	}
 	
 	//Returns current display
@@ -44,6 +46,7 @@ public class Engine implements KeyListener, MouseListener{
 	public void initializeGame() {
 		state = GameState.MENU;
 		colors.setScheme("WARM");
+		txg.test(); //used to test text game
 	}
 	
 	//Draws the beginning start menu
@@ -196,7 +199,24 @@ public class Engine implements KeyListener, MouseListener{
 	
 	@Override
  	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
+		switch(e.getKeyCode()) {
+		case KeyEvent.VK_UP:
+			txg.moveUp();
+			txg.printGame();
+			break;
+		case KeyEvent.VK_DOWN:
+			txg.moveDown();
+			txg.printGame();
+			break;
+		case KeyEvent.VK_LEFT:
+			txg.moveLeft();
+			txg.printGame();
+			break;
+		case KeyEvent.VK_RIGHT:
+			txg.moveRight();
+			txg.printGame();
+			break;
+		}
 	}
 
 	@Override
@@ -281,7 +301,10 @@ public class Engine implements KeyListener, MouseListener{
 				state = GameState.OPTIONS;
 				display.repaint();
 			}
-		
+			
+		default:
+			System.out.println("DEFAULT");
+			break;
 		}
 	}
 

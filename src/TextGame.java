@@ -1,4 +1,8 @@
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.Random;
+
+import javax.swing.JPanel;
 
 public class TextGame {
 	
@@ -29,6 +33,11 @@ public class TextGame {
 		
 	}
 	
+	public void test() {
+		startingTiles();
+		printGame();
+	}
+	
 	//method for placing a new tile
 	public static void onClickTiles() {
 		boolean blank = false;
@@ -48,7 +57,7 @@ public class TextGame {
 		}
 	}
 	
-	public static void moveDown() {
+	public void moveDown() {
 		int val = 0;
 		//for each col, for each row, starting at gameGrid[3][0], compares it to each digit in the col
 		for (int col = 0; col < gameGrid.length; col++) {// col loop
@@ -75,7 +84,7 @@ public class TextGame {
 		onClickTiles();
 	}
 	
-	public static void moveUp() {
+	public void moveUp() {
 		int val = 0;
 		//for each col, for each row, starting at gameGrid[0][0], compares it to each digit in the col
 		for (int col = 0; col < gameGrid.length; col++) {// col loop
@@ -102,7 +111,7 @@ public class TextGame {
 		onClickTiles();
 	}
 	
-	public static void moveLeft() {
+	public void moveLeft() {
 		int val = 0;
 		//for each row, for each col, starting at gameGrid[0][0], compares it to each digit in the col
 		for (int row = 0; row < gameGrid.length; row++) {// col loop
@@ -126,15 +135,20 @@ public class TextGame {
 				}// end of compare loop
 			}//end of row loop
 		}// end of col loop
+		onClickTiles();
 	}// Problems so far! If theres a 0 between two numbers tha should combine, they don't combine, they just go next to each other
 	// ex: 2, 4, 0, 4 turns into 2, 4, 4, 0 instead of 2, 8, 0, 0
+	
+	public void moveRight() {
+		int val = 0;
+	}
 	
 	public static void runGame() {
 		
 	}
 	
 	//Prints game in grid format
-	public static void printGame() {
+	public void printGame() {
 		for (int i = 0; i < gameGrid.length; i++) {
 	        for(int j = 0; j < gameGrid[i].length; j++) {
 	           System.out.print(gameGrid[i][j] + " ");
@@ -144,7 +158,7 @@ public class TextGame {
 		System.out.println("");
 	}
 
-	public static void main(String[] args) {
+	/* public static void main(String[] args) {
 		// Alright sluts, we're making this textbased first
 		startingTiles();
 		printGame();
@@ -163,6 +177,11 @@ public class TextGame {
 		printGame();
 		moveLeft();
 		printGame();
+		onClickTiles();
+		printGame();
+		
 	}
 
+ */
+	
 }
