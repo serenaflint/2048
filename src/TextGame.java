@@ -186,7 +186,6 @@ public class TextGame {
 	
 	// Checks to see 1. If any tiles are blank or 2. if theres any moves left to make. Returns false if it's time for the game to end
 	public boolean checkMoves() {
-		boolean movesLeft;
 		for (int row = 0; row < gameGrid.length; row++) {// row loop
 			for (int col = 0; col < gameGrid.length; col++) {// col loop
 				if(gameGrid[row][col] == 0)
@@ -205,6 +204,14 @@ public class TextGame {
 				}
 			}//end of col loop
 		}// end of row loop
+		return false;
+	}
+	
+	public boolean win() {
+		for (int row = 0; row < gameGrid.length; row++) 
+			for (int col = 0; col < gameGrid.length; col++)
+				if(gameGrid[row][col] == 2028)
+					return true;
 		return false;
 	}
 	
