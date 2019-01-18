@@ -34,6 +34,8 @@ public class TextGame {
 		printGame();
 	}
 	
+	
+	
 	//method for placing a new tile
 	public static void onClickTiles() {
 		boolean blank = false;
@@ -219,6 +221,14 @@ public class TextGame {
 	        System.out.println("");
 	     }
 		System.out.println("");
+	}
+	
+	public void clearGrid() {
+		for (int i = 0; i < gameGrid.length; i++) {
+	        for(int j = 0; j < gameGrid[i].length; j++) {
+	          gameGrid[i][j] =0;
+	        }
+	     }
 	}
 
 	/* public static void main(String[] args) {

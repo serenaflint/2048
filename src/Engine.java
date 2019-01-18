@@ -428,6 +428,12 @@ public class Engine implements KeyListener, MouseListener{
 				pause = true;
 				state = GameState.OPTIONS;
 				display.repaint();
+			} else if((xpos >= display.getWidth()/2 && xpos <= display.getWidth()/2+80) && (ypos >= display.getHeight()/2-425 && ypos <= display.getHeight()/2-425+80)) {
+				System.out.println("RESTART");
+				txg.clearGrid();
+				cscore = 0;
+				txg.test();
+				display.repaint();
 			}
 			break;
 			
