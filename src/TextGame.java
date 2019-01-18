@@ -210,7 +210,7 @@ public class TextGame {
 	public boolean win() {
 		for (int row = 0; row < gameGrid.length; row++) 
 			for (int col = 0; col < gameGrid.length; col++)
-				if(gameGrid[row][col] == 2028)
+				if(gameGrid[row][col] == 2048)
 					return true;
 		return false;
 	}

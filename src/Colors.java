@@ -83,6 +83,9 @@ public class Colors {
 	//default after 2048
 	Color defaultA = new Color(42, 38, 31); //dark beige-grey
 	
+	//Semi-transparent Background
+	Color trans = new Color(254, 253, 251, 170);
+	
 	//Warm Scheme
 	Color aW = new Color(226, 224, 207); //light beige
 	Color bW = new Color(240, 229, 144); //soft light yellow

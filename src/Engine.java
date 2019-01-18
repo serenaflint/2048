@@ -26,6 +26,7 @@ public class Engine implements KeyListener, MouseListener{
 	static Color offwhite = new Color(254, 253, 251);
 	
 	static boolean pause = false;
+	static boolean won = false;
 	static int cscore = 0;
 	
 	//Constructor
@@ -205,6 +206,21 @@ public class Engine implements KeyListener, MouseListener{
 		}
 	}
 	
+	public void drawEnd(Graphics g) {
+		drawRShell(g);
+		drawTileGrid(g);
+		g.setColor(colors.trans);
+		g.fillRect(0, 0, display.getWidth(), display.getHeight());
+		g.setColor(dgrey);
+		g.setFont(h1);
+		if(txg.win() && !won) {
+			g.drawString("You Win!", display.getWidth()/2-220, display.getHeight()/2+40);
+		} else {
+			g.drawString("Game Over", display.getWidth()/2-265, display.getHeight()/2+40);
+		}
+
+	}
+	
 	public void formatTile(Graphics g, int val, int row, int col) {
 		switch (val) {
 		case 2:
@@ -316,32 +332,37 @@ public class Engine implements KeyListener, MouseListener{
 			display.repaint();
 			txg.moveUp();
 			txg.printGame();
-			if(!txg.checkMoves()) {
+			if(!txg.checkMoves() || (txg.win() && won == false)) {
 				System.out.println("GAME OVER");
+				state = GameState.END;
 			}
 			break;
 		case KeyEvent.VK_DOWN:
 			display.repaint();
 			txg.moveDown();
 			txg.printGame();
-			if(!txg.checkMoves()) {
+			if(!txg.checkMoves() || (txg.win() && won == false)) {
 				System.out.println("GAME OVER");
+				state = GameState.END;
 			}
+			
 			break;
 		case KeyEvent.VK_LEFT:
 			display.repaint();
 			txg.moveLeft();
 			txg.printGame();
-			if(!txg.checkMoves()) {
+			if(!txg.checkMoves() || (txg.win() && won == false)) {
 				System.out.println("GAME OVER");
+				state = GameState.END;
 			}
 			break;
 		case KeyEvent.VK_RIGHT:
 			display.repaint();
 			txg.moveRight();
 			txg.printGame();
-			if(!txg.checkMoves()) {
+			if(!txg.checkMoves() || (txg.win() && won == false)) {
 				System.out.println("GAME OVER");
+				state = GameState.END;
 			}
 			break;
 		}
@@ -421,7 +442,6 @@ public class Engine implements KeyListener, MouseListener{
 			if((xpos >= display.getWidth()/2-300 && xpos <= display.getWidth()/2-40) && (ypos >= display.getHeight()/2+340 && ypos <= display.getHeight()/2+400)) {
 				//If mouse is within Main Menu box...
 				state = GameState.MENU;
-				//TODO RESTART GAME, THIS SHOULD PROBABLY END GAME
 				display.repaint();
 			} else if((xpos >= display.getWidth()/2+40 && xpos <= display.getWidth()/2+300) && (ypos >= display.getHeight()/2+340 && ypos <= display.getHeight()/2+400)) {
 				//If mouse is within Options box...
@@ -429,14 +449,28 @@ public class Engine implements KeyListener, MouseListener{
 				state = GameState.OPTIONS;
 				display.repaint();
 			} else if((xpos >= display.getWidth()/2 && xpos <= display.getWidth()/2+80) && (ypos >= display.getHeight()/2-425 && ypos <= display.getHeight()/2-425+80)) {
+				//If mouse is within Restart button...g
 				System.out.println("RESTART");
+				won = false;
 				txg.clearGrid();
 				cscore = 0;
 				txg.test();
 				display.repaint();
 			}
 			break;
-			
+		case END:
+			if(txg.win() && !won) {
+				won = true;
+				state = GameState.RUN;
+				display.repaint();
+			} else {
+				won = false;
+				txg.clearGrid();
+				txg.test();
+				state = GameState.RUN;
+				display.repaint();
+			}
+			break;
 		default:
 			System.out.println("DEFAULT");
 			break;

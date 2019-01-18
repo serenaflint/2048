@@ -34,6 +34,7 @@ public class Display extends JComponent{
 		
 		case END:
 			//final screen, option to play again etc.
+			engine.drawEnd(g);
 			break;
 		
 		case HS:
