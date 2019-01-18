@@ -181,7 +181,7 @@ public class Engine implements KeyListener, MouseListener{
 		g.drawString("Options", display.getWidth()/2+115, display.getHeight()/2+380);
 	}
 	
-	public void drawInitialGrid(Graphics g) {
+	public void drawTileGrid(Graphics g) {
 		for(int row = 0; row < txg.gameGrid.length; row++) {
 			for(int col = 0; col < txg.gameGrid[row].length; col++) {
 				if(txg.gameGrid[row][col] == 0) {
@@ -189,13 +189,98 @@ public class Engine implements KeyListener, MouseListener{
 					g.fillRoundRect(display.getWidth()/2-292+148*col, display.getHeight()/2-292+148*row, 140, 140, 15, 15);
 				
 				} else {
-					g.setColor(colors.getB());
-					g.fillRoundRect(display.getWidth()/2-292+148*col, display.getHeight()/2-292+148*row, 140, 140, 15, 15);
-					g.setColor(offwhite);
-					g.setFont(tile);
-					g.drawString("" + txg.gameGrid[row][col], display.getWidth()/2-244+148*col, display.getHeight()/2-200+148*row);
+					formatTile(g, txg.gameGrid[row][col], row, col);
 				}
 			}
+		}
+	}
+	
+	public void formatTile(Graphics g, int val, int row, int col) {
+		switch (val) {
+		case 2:
+			g.setColor(colors.getA());
+			g.fillRoundRect(display.getWidth()/2-292+148*col, display.getHeight()/2-292+148*row, 140, 140, 15, 15);
+			g.setColor(offwhite);
+			g.setFont(tile);
+			g.drawString("" + txg.gameGrid[row][col], display.getWidth()/2-244+148*col, display.getHeight()/2-197+148*row);
+			break;
+		case 4:
+			g.setColor(colors.getB());
+			g.fillRoundRect(display.getWidth()/2-292+148*col, display.getHeight()/2-292+148*row, 140, 140, 15, 15);
+			g.setColor(offwhite);
+			g.setFont(tile);
+			g.drawString("" + txg.gameGrid[row][col], display.getWidth()/2-244+148*col, display.getHeight()/2-197+148*row);
+			break;
+		case 8:
+			g.setColor(colors.getC());
+			g.fillRoundRect(display.getWidth()/2-292+148*col, display.getHeight()/2-292+148*row, 140, 140, 15, 15);
+			g.setColor(offwhite);
+			g.setFont(tile);
+			g.drawString("" + txg.gameGrid[row][col], display.getWidth()/2-244+148*col, display.getHeight()/2-197+148*row);
+			break;
+		case 16:
+			g.setColor(colors.getD());
+			g.fillRoundRect(display.getWidth()/2-292+148*col, display.getHeight()/2-292+148*row, 140, 140, 15, 15);
+			g.setColor(offwhite);
+			g.setFont(tile);
+			g.drawString("" + txg.gameGrid[row][col], display.getWidth()/2-266+148*col, display.getHeight()/2-197+148*row);
+			break;
+		case 32:
+			g.setColor(colors.getE());
+			g.fillRoundRect(display.getWidth()/2-292+148*col, display.getHeight()/2-292+148*row, 140, 140, 15, 15);
+			g.setColor(offwhite);
+			g.setFont(tile);
+			g.drawString("" + txg.gameGrid[row][col], display.getWidth()/2-266+148*col, display.getHeight()/2-197+148*row);
+			break;
+		case 64:
+			g.setColor(colors.getB());
+			g.fillRoundRect(display.getWidth()/2-292+148*col, display.getHeight()/2-292+148*row, 140, 140, 15, 15);
+			g.setColor(offwhite);
+			g.setFont(tile);
+			g.drawString("" + txg.gameGrid[row][col], display.getWidth()/2-266+148*col, display.getHeight()/2-197+148*row);
+			break;
+		case 128:
+			g.setColor(colors.getC());
+			g.fillRoundRect(display.getWidth()/2-292+148*col, display.getHeight()/2-292+148*row, 140, 140, 15, 15);
+			g.setColor(offwhite);
+			g.setFont(tile);
+			g.drawString("" + txg.gameGrid[row][col], display.getWidth()/2-286+148*col, display.getHeight()/2-197+148*row);
+			break;
+		case 256:
+			g.setColor(colors.getD());
+			g.fillRoundRect(display.getWidth()/2-292+148*col, display.getHeight()/2-292+148*row, 140, 140, 15, 15);
+			g.setColor(offwhite);
+			g.setFont(tile);
+			g.drawString("" + txg.gameGrid[row][col], display.getWidth()/2-284+148*col, display.getHeight()/2-197+148*row);
+			break;
+		case 512:
+			g.setColor(colors.getE());
+			g.fillRoundRect(display.getWidth()/2-292+148*col, display.getHeight()/2-292+148*row, 140, 140, 15, 15);
+			g.setColor(offwhite);
+			g.setFont(tile);
+			g.drawString("" + txg.gameGrid[row][col], display.getWidth()/2-284+148*col, display.getHeight()/2-197+148*row);
+			break;
+		case 1024:
+			g.setColor(colors.getC());
+			g.fillRoundRect(display.getWidth()/2-292+148*col, display.getHeight()/2-292+148*row, 140, 140, 15, 15);
+			g.setColor(offwhite);
+			g.setFont(h2);
+			g.drawString("" + txg.gameGrid[row][col], display.getWidth()/2-278+148*col, display.getHeight()/2-204+148*row);
+			break;
+		case 2048:
+			g.setColor(colors.getD());
+			g.fillRoundRect(display.getWidth()/2-292+148*col, display.getHeight()/2-292+148*row, 140, 140, 15, 15);
+			g.setColor(offwhite);
+			g.setFont(h2);
+			g.drawString("" + txg.gameGrid[row][col], display.getWidth()/2-266+148*col, display.getHeight()/2-197+148*row);
+			break;
+		default:
+			g.setColor(colors.defaultA);
+			g.fillRoundRect(display.getWidth()/2-292+148*col, display.getHeight()/2-292+148*row, 140, 140, 15, 15);
+			g.setColor(offwhite);
+			g.setFont(h2);
+			g.drawString("" + txg.gameGrid[row][col], display.getWidth()/2-266+148*col, display.getHeight()/2-197+148*row);
+			
 		}
 	}
 	

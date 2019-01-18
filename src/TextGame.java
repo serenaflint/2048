@@ -181,6 +181,8 @@ public class TextGame {
 			onClickTiles();
 	}
 	
+	//On left click, if every tile in col 0 is full, it prints gameover
+	//On left click and right, if no combines it still generates random
 	public boolean checkMoves() {
 		boolean movesLeft;
 		for (int row = 0; row < gameGrid.length; row++) {// row loop
