@@ -198,7 +198,7 @@ public class TextGame {
 						return true;
 				}
 				else if(col != gameGrid.length-1 && row != gameGrid.length-1){
-					if(gameGrid[row][col] == gameGrid[row][col+1] && gameGrid[row][col] == gameGrid[row+1][col])
+					if(gameGrid[row][col] == gameGrid[row][col+1] || gameGrid[row][col] == gameGrid[row+1][col])
 						return true;
 				}
 			}//end of col loop
