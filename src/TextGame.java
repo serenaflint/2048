@@ -126,7 +126,7 @@ public class TextGame {
 				for(int compare = col+1; compare<gameGrid.length; compare++) {
 					
 					if (gameGrid[row][col] == 0) {
-						if(gameGrid[compare][col] != 0)
+						if(gameGrid[row][compare] != 0)
 							tileMoved = true;
 						gameGrid[row][col] = gameGrid[row][compare];
 						gameGrid[row][compare] = 0;
@@ -158,10 +158,11 @@ public class TextGame {
 				for(int compare = col-1; compare>= 0; compare--) {
 					
 					if (gameGrid[row][col] == 0) {
+						if(gameGrid[row][compare] != 0)
+							tileMoved = true;
 						gameGrid[row][col] = gameGrid[row][compare];
 						gameGrid[row][compare] = 0;
-						if(gameGrid[compare][col] != 0)
-							tileMoved = true;
+						
 					}// end of if
 					else if (gameGrid[row][col] == gameGrid[row][compare]) {
 						val = (gameGrid[row][col]) * 2;
