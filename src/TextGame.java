@@ -184,7 +184,7 @@ public class TextGame {
 			onClickTiles();
 	}
 	
-	//On left click, if every tile in col 0 is full, it prints gameover
+	// Checks to see 1. If any tiles are blank or 2. if theres any moves left to make. Returns false if it's time for the game to end
 	public boolean checkMoves() {
 		boolean movesLeft;
 		for (int row = 0; row < gameGrid.length; row++) {// row loop
