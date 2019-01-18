@@ -183,7 +183,6 @@ public class TextGame {
 	}
 	
 	//On left click, if every tile in col 0 is full, it prints gameover
-	//On left click and right, if no combines it still generates random
 	public boolean checkMoves() {
 		boolean movesLeft;
 		for (int row = 0; row < gameGrid.length; row++) {// row loop
@@ -193,23 +192,17 @@ public class TextGame {
 				else if(col == gameGrid.length-1 && row != gameGrid.length-1) {
 					if(gameGrid[row][col] == gameGrid[row+1][col])
 						return true;
-					else
-						break;
 				}
 				else if(col != gameGrid.length-1 && row == gameGrid.length-1) {
 					if(gameGrid[row][col] == gameGrid[row][col+1])
 						return true;
-					else
-						break;
 				}
-				else {
+				else if(col != gameGrid.length-1 && row != gameGrid.length-1){
 					if(gameGrid[row][col] == gameGrid[row][col+1] && gameGrid[row][col] == gameGrid[row+1][col])
 						return true;
-					else
-						break;
 				}
-			}//end of row loop //should this be col?
-		}// end of col loop //should this be row?
+			}//end of col loop
+		}// end of row loop
 		return false;
 	}
 	
