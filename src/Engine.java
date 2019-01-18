@@ -167,8 +167,18 @@ public class Engine implements KeyListener, MouseListener{
 		g.setFont(text);
 		g.drawString(formattedScore(), display.getWidth()/2+158, display.getHeight()/2-360);
 		
+		//Restart Button
+		g.setColor(colors.getC());
+		g.fillRoundRect(display.getWidth()/2, display.getHeight()/2-425, 80, 80, 15, 15);
+		g.setFont(tile);
+		g.setColor(offwhite);
+		char symbolC = 0x27F2;
+		String symbolS = String.valueOf(symbolC);
+		g.drawString(symbolS, display.getWidth()/2+6, display.getHeight()/2-363);
+		
 		//Main Menu box
 		colors.setCurrentColors();
+		g.setFont(text);
 		g.setColor(colors.getC());
 		g.fillRoundRect(display.getWidth()/2-300, display.getHeight()/2+340, 260, 60, 15, 15);
 		g.setColor(offwhite);
