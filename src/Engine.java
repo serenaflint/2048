@@ -15,6 +15,7 @@ public class Engine implements KeyListener, MouseListener{
 	public static Colors colors;
 	public static HighScores hs;
 	public static TextGame txg;
+	public static Sound sound;
 	
 	static Font h1 = new Font(Font.SANS_SERIF, Font.BOLD, 100);
 	static Font h2 = new Font(Font.SANS_SERIF, Font.BOLD, 50);
@@ -27,6 +28,8 @@ public class Engine implements KeyListener, MouseListener{
 	
 	static boolean pause = false;
 	static boolean won = false;
+	static boolean useSound = true;
+	static boolean useMusic = true;
 	static int cscore = 0;
 	
 	//Constructor
@@ -35,6 +38,7 @@ public class Engine implements KeyListener, MouseListener{
 		colors = new Colors(a, b, c, d, e);
 		hs = new HighScores();
 		txg = new TextGame();
+		sound = new Sound();
 	}
 	
 	//Returns current display
@@ -379,14 +383,23 @@ public class Engine implements KeyListener, MouseListener{
 		case MENU:
 			if((xpos >= display.getWidth()/2-140 && xpos <= display.getWidth()/2+140) && (ypos >= display.getHeight()/2+80 && ypos <= display.getHeight()/2+140)) {
 				//If mouse is within Play Game box...
+				if(useSound) {
+					sound.onButton();
+				}
 				state = GameState.RUN;
 				display.repaint();
 			} else if((xpos >= display.getWidth()/2-140 && xpos <= display.getWidth()/2+140) && (ypos >= display.getHeight()/2+160 && ypos <= display.getHeight()/2+220)) {
 				//If mouse is within High Scores box...
+				if(useSound) {
+					sound.onButton();
+				}
 				state = GameState.HS;
 				display.repaint();
 			} else if((xpos >= display.getWidth()/2-140 && xpos <= display.getWidth()/2+140) && (ypos >= display.getHeight()/2+240 && ypos <= display.getHeight()/2+300)) {
 				//If mouse is within Options box...
+				if(useSound) {
+					sound.onButton();
+				}
 				state = GameState.OPTIONS;
 				display.repaint();
 			}
@@ -395,31 +408,49 @@ public class Engine implements KeyListener, MouseListener{
 		case OPTIONS:
 			if((xpos >= 100 && xpos <= 380) && (ypos >= 380 && ypos <= 440)) {
 				//If mouse is within Warm box...
+				if(useSound) {
+					sound.onButton();
+				}
 				colors.setScheme("WARM");
 				colors.setCurrentColors();
 				display.repaint();
 			} else if((xpos >= 100 && xpos <= 380) && (ypos >= 460 && ypos <= 520)) {
 				//If mouse is within Cool box...
+				if(useSound) {
+					sound.onButton();
+				}
 				colors.setScheme("COOL");
 				colors.setCurrentColors();
 				display.repaint();
 			} else if((xpos >= 100 && xpos <= 380) && (ypos >= 540 && ypos <= 600)) {
 				//If mouse is within Pastel box...
+				if(useSound) {
+					sound.onButton();
+				}
 				colors.setScheme("PASTEL");
 				colors.setCurrentColors();
 				display.repaint();
 			} else if((xpos >= 100 && xpos <= 380) && (ypos >= 620 && ypos <= 680)) {
 				//If mouse is within Natural box...
+				if(useSound) {
+					sound.onButton();
+				}
 				colors.setScheme("NATURAL");
 				colors.setCurrentColors();
 				display.repaint();
 			} else if((xpos >= 100 && xpos <= 380) && (ypos >= 700 && ypos <= 760)) {
 				//If mouse is within Grey box...
+				if(useSound) {
+					sound.onButton();
+				}
 				colors.setScheme("GREY");
 				colors.setCurrentColors();
 				display.repaint();
 			} else if((xpos >= display.getWidth()/2-140 && xpos <= display.getWidth()/2+140) && (ypos >= display.getHeight()/2+360 && ypos <= display.getHeight()/2+420)) {
 				//If mouse is within Main Menu/Return box...
+				if(useSound) {
+					sound.onButton();
+				}
 				if(!pause) {
 					state = GameState.MENU;
 				} else if(pause) {
@@ -433,6 +464,9 @@ public class Engine implements KeyListener, MouseListener{
 		case HS:
 			if((xpos >= display.getWidth()/2-140 && xpos <= display.getWidth()/2+140) && (ypos >= display.getHeight()/2+360 && ypos <= display.getHeight()/2+420)) {
 				//If mouse is within Main Menu box...
+				if(useSound) {
+					sound.onButton();
+				}
 				state = GameState.MENU;
 				display.repaint();
 			}
@@ -441,15 +475,24 @@ public class Engine implements KeyListener, MouseListener{
 		case RUN:
 			if((xpos >= display.getWidth()/2-300 && xpos <= display.getWidth()/2-40) && (ypos >= display.getHeight()/2+340 && ypos <= display.getHeight()/2+400)) {
 				//If mouse is within Main Menu box...
+				if(useSound) {
+					sound.onButton();
+				}
 				state = GameState.MENU;
 				display.repaint();
 			} else if((xpos >= display.getWidth()/2+40 && xpos <= display.getWidth()/2+300) && (ypos >= display.getHeight()/2+340 && ypos <= display.getHeight()/2+400)) {
 				//If mouse is within Options box...
+				if(useSound) {
+					sound.onButton();
+				}
 				pause = true;
 				state = GameState.OPTIONS;
 				display.repaint();
 			} else if((xpos >= display.getWidth()/2 && xpos <= display.getWidth()/2+80) && (ypos >= display.getHeight()/2-425 && ypos <= display.getHeight()/2-425+80)) {
-				//If mouse is within Restart button...g
+				//If mouse is within Restart button...
+				if(useSound) {
+					sound.onButton();
+				}
 				System.out.println("RESTART");
 				won = false;
 				txg.clearGrid();
