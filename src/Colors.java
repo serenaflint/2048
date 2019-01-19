@@ -5,7 +5,7 @@ public class Colors {
 	Color a, b, c, d, e;
 	
 	public enum Scheme {
-		WARM, COOL, PASTEL, NATURAL, GREY
+		WARM, COOL, PASTEL, RETRO, GREY
 	}
 	
 	Scheme scheme = Scheme.WARM;
@@ -67,8 +67,8 @@ public class Colors {
 			scheme = Scheme.PASTEL;
 			break;
 			
-		case "NATURAL":
-			scheme = Scheme.NATURAL;
+		case "RETRO":
+			scheme = Scheme.RETRO;
 			break;
 			
 		case "GREY":
@@ -86,8 +86,12 @@ public class Colors {
 	//Semi-transparent Background
 	Color trans = new Color(254, 253, 251, 170);
 	
-	//Misc Green
-	Color oOff = new Color(144, 240, 149); //soft green
+	//Options Green
+	Color oOff = new Color(144, 240, 149);
+	
+	//Light Grey (for light tiles)
+	Color lyGrey = new Color(167, 165, 154); //yellow grey
+	Color lcGrey = new Color(154, 163, 167); //blue grey
 	
 	//Warm Scheme
 	Color aW = new Color(226, 224, 207); //light beige
@@ -110,12 +114,12 @@ public class Colors {
 	Color dP = new Color(245, 183, 212); //pastel pink
 	Color eP = new Color(214, 235, 226); //pastel green
 	
-	//Natural Scheme
-	Color aN = new Color(164, 154, 127); //light brown
-	Color bN = new Color(152, 145, 126); //slightly darker brown
-	Color cN = new Color(129, 145, 127); //green
-	Color dN = new Color(107, 134, 123); //slightly darker green
-	Color eN = new Color(92, 117, 113); //darker green
+	//Retro Scheme
+	Color aR = new Color(255, 236, 180); //eggshell
+	Color bR = new Color(244, 161, 39); //light orange
+	Color cR = new Color(229, 119, 30); //medium orange
+	Color dR = new Color(117, 200, 174); //teal
+	Color eR = new Color(90, 61, 43); //brown
 	
 	//Grey Scheme
 	Color aG = new Color(237, 237, 237);
@@ -152,12 +156,12 @@ public class Colors {
 			setE(eG);
 			break;
 		
-		case NATURAL:
-			setA(aN);
-			setB(bN);
-			setC(cN);
-			setD(dN);
-			setE(eN);
+		case RETRO:
+			setA(aR);
+			setB(bR);
+			setC(cR);
+			setD(dR);
+			setE(eR);
 			break;
 		
 		case PASTEL:

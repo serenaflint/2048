@@ -99,7 +99,7 @@ public class Engine implements KeyListener, MouseListener{
 		g.fillRoundRect(100, 460, 280, 60, 20, 15);
 		g.setColor(colors.cP);
 		g.fillRoundRect(100, 540, 280, 60, 20, 15);
-		g.setColor(colors.bN);
+		g.setColor(colors.eR);
 		g.fillRoundRect(100, 620, 280, 60, 20, 15);
 		g.setColor(colors.cG);
 		g.fillRoundRect(100, 700, 280, 60, 20, 15);
@@ -110,7 +110,7 @@ public class Engine implements KeyListener, MouseListener{
 		g.drawString("Warm", 195, 420);
 		g.drawString("Cool", 205, 500);
 		g.drawString("Pastel", 190, 580);
-		g.drawString("Natural", 185, 660);
+		g.drawString("Retro", 195, 660);
 		g.drawString("Grey", 200, 740);
 		
 		//Main Menu (return to)
@@ -263,14 +263,22 @@ public class Engine implements KeyListener, MouseListener{
 		case 2:
 			g.setColor(colors.getA());
 			g.fillRoundRect(display.getWidth()/2-292+148*col, display.getHeight()/2-292+148*row, 140, 140, 15, 15);
-			g.setColor(offwhite);
+			if(colors.getA() == colors.aP) {
+				g.setColor(colors.lyGrey);
+			} else {
+				g.setColor(offwhite);
+			}
 			g.setFont(tile);
 			g.drawString("" + txg.gameGrid[row][col], display.getWidth()/2-244+148*col, display.getHeight()/2-197+148*row);
 			break;
 		case 4:
 			g.setColor(colors.getB());
 			g.fillRoundRect(display.getWidth()/2-292+148*col, display.getHeight()/2-292+148*row, 140, 140, 15, 15);
-			g.setColor(offwhite);
+			if(colors.getB() == colors.bP) {
+				g.setColor(colors.lcGrey);
+			} else {
+				g.setColor(offwhite);
+			}
 			g.setFont(tile);
 			g.drawString("" + txg.gameGrid[row][col], display.getWidth()/2-244+148*col, display.getHeight()/2-197+148*row);
 			break;
@@ -298,7 +306,11 @@ public class Engine implements KeyListener, MouseListener{
 		case 64:
 			g.setColor(colors.getB());
 			g.fillRoundRect(display.getWidth()/2-292+148*col, display.getHeight()/2-292+148*row, 140, 140, 15, 15);
-			g.setColor(offwhite);
+			if(colors.getB() == colors.bP) {
+				g.setColor(colors.lcGrey);
+			} else {
+				g.setColor(offwhite);
+			}
 			g.setFont(tile);
 			g.drawString("" + txg.gameGrid[row][col], display.getWidth()/2-266+148*col, display.getHeight()/2-197+148*row);
 			break;
@@ -464,11 +476,11 @@ public class Engine implements KeyListener, MouseListener{
 				colors.setCurrentColors();
 				display.repaint();
 			} else if((xpos >= 100 && xpos <= 380) && (ypos >= 620 && ypos <= 680)) {
-				//If mouse is within Natural box...
+				//If mouse is within Retro box...
 				if(useSound) {
 					sound.onButton();
 				}
-				colors.setScheme("NATURAL");
+				colors.setScheme("RETRO");
 				colors.setCurrentColors();
 				display.repaint();
 			} else if((xpos >= 100 && xpos <= 380) && (ypos >= 700 && ypos <= 760)) {
