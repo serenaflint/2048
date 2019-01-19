@@ -86,6 +86,9 @@ public class Colors {
 	//Semi-transparent Background
 	Color trans = new Color(254, 253, 251, 170);
 	
+	//Misc Green
+	Color oOff = new Color(144, 240, 149); //soft green
+	
 	//Warm Scheme
 	Color aW = new Color(226, 224, 207); //light beige
 	Color bW = new Color(240, 229, 144); //soft light yellow

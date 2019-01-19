@@ -92,7 +92,7 @@ public class Engine implements KeyListener, MouseListener{
 		g.setFont(h2);
 		g.drawString("Color Scheme", 75, 340);
 		
-		//boxes
+		//boxes, used definite colors
 		g.setColor(colors.cW);
 		g.fillRoundRect(100, 380, 280, 60, 20, 15);
 		g.setColor(colors.bC);
@@ -122,6 +122,39 @@ public class Engine implements KeyListener, MouseListener{
 			g.drawString("Main Menu", display.getWidth()/2-80, display.getHeight()/2+400);
 		} else if(pause) {
 			g.drawString("Return", display.getWidth()/2-50, display.getHeight()/2+400);
+		}
+		
+		//Sound and Music Options
+		g.setColor(dgrey);
+		g.setFont(h2);
+		g.drawString("Sound", 680, 340);
+		g.drawString("Music", 684, 510);
+		if(useSound) {
+			g.setColor(colors.oOff);
+			g.fillRoundRect(620, 380, 280, 60, 20, 15);
+			g.setFont(text);
+			g.setColor(offwhite);
+			g.drawString("Turn Off", 704, 420);
+		} else if (!useSound){
+			g.setColor(colors.dW);
+			g.fillRoundRect(620, 380, 280, 60, 20, 15);
+			g.setFont(text);
+			g.setColor(offwhite);
+			g.drawString("Turn On", 704, 420);
+		}
+		
+		if(useMusic) {
+			g.setColor(colors.oOff);
+			g.fillRoundRect(620, 540, 280, 60, 20, 15);
+			g.setFont(text);
+			g.setColor(offwhite);
+			g.drawString("Turn Off", 704, 580);
+		} else if(!useMusic){
+			g.setColor(colors.dW);
+			g.fillRoundRect(620, 540, 280, 60, 20, 15);
+			g.setFont(text);
+			g.setColor(offwhite);
+			g.drawString("Turn On", 704, 580);
 		}
 	}
 	
@@ -458,6 +491,22 @@ public class Engine implements KeyListener, MouseListener{
 					pause = false;
 				}
 				display.repaint();
+			} else if((xpos >= 620 && xpos <= 900) && (ypos >= 380 && ypos <= 440)) {
+				if(useSound) {
+					useSound = false;
+					display.repaint();
+				} else if (!useSound){
+					useSound = true;
+					display.repaint();
+				}
+			} else if((xpos >= 620 && xpos <= 900) && (ypos >= 540 && ypos <= 600)) {
+				if(useMusic) {
+					useMusic = false;
+					display.repaint();
+				} else if (!useMusic){
+					useMusic = true;
+					display.repaint();
+				}
 			}
 			break;
 			
