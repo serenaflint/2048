@@ -1,13 +1,47 @@
 
 import java.io.File;
+import java.net.URL;
+
 import javax.sound.sampled.*;
 
-public class Sound {
+public enum Sound{
+		
+	CLICK("click.wav"),
+	BACKGROUND("background.wav");
+
+	public Clip clip;
+	
+	Sound(String fileName) {
+		try {
+			clip = AudioSystem.getClip();
+			AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File(fileName).getAbsoluteFile());
+			clip.open(inputStream);
+		} catch(Exception e) {
+			System.err.println(e.getMessage());
+		}
+	}
+	
+	public void preload() {
+		values();
+	}
+	
+	public void play() {
+		clip.setFramePosition(0);
+		clip.start();
+	}
+	
+	public void loop() {
+		clip.loop(Clip.LOOP_CONTINUOUSLY);
+	}
+	
+	public void stop() {
+		clip.stop();
+	}
 
 	//Button Sounds
 	public void onButton() {
 		try {
-			Clip clip = AudioSystem.getClip();
+			clip = AudioSystem.getClip();
 			AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File("click.wav").getAbsoluteFile());
 			clip.open(inputStream);
 			clip.start();
@@ -18,14 +52,13 @@ public class Sound {
 	
 	public void background() {
 		try {
-			Clip clip = AudioSystem.getClip();
+			clip = AudioSystem.getClip();
 			AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File("background.wav").getAbsoluteFile());
 			clip.open(inputStream);
-			clip.start();
+			clip.loop(Clip.LOOP_CONTINUOUSLY);
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 		}
 	}
-	
 	
 }

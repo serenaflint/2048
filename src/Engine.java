@@ -38,7 +38,6 @@ public class Engine implements KeyListener, MouseListener{
 		colors = new Colors(a, b, c, d, e);
 		hs = new HighScores();
 		txg = new TextGame();
-		sound = new Sound();
 	}
 	
 	//Returns current display
@@ -51,6 +50,7 @@ public class Engine implements KeyListener, MouseListener{
 		state = GameState.MENU;
 		colors.setScheme("WARM");
 		txg.test(); //used to test text game
+		Sound.BACKGROUND.play();
 	}
 	
 	//Draws the beginning start menu
@@ -355,7 +355,7 @@ public class Engine implements KeyListener, MouseListener{
 			g.setColor(offwhite);
 			g.setFont(h2);
 			g.drawString("" + txg.gameGrid[row][col], display.getWidth()/2-266+148*col, display.getHeight()/2-197+148*row);
-			
+			break;
 		}
 	}
 	
@@ -429,21 +429,21 @@ public class Engine implements KeyListener, MouseListener{
 			if((xpos >= display.getWidth()/2-140 && xpos <= display.getWidth()/2+140) && (ypos >= display.getHeight()/2+80 && ypos <= display.getHeight()/2+140)) {
 				//If mouse is within Play Game box...
 				if(useSound) {
-					sound.onButton();
+					Sound.CLICK.play();
 				}
 				state = GameState.RUN;
 				display.repaint();
 			} else if((xpos >= display.getWidth()/2-140 && xpos <= display.getWidth()/2+140) && (ypos >= display.getHeight()/2+160 && ypos <= display.getHeight()/2+220)) {
 				//If mouse is within High Scores box...
 				if(useSound) {
-					sound.onButton();
+					Sound.CLICK.play();
 				}
 				state = GameState.HS;
 				display.repaint();
 			} else if((xpos >= display.getWidth()/2-140 && xpos <= display.getWidth()/2+140) && (ypos >= display.getHeight()/2+240 && ypos <= display.getHeight()/2+300)) {
 				//If mouse is within Options box...
 				if(useSound) {
-					sound.onButton();
+					Sound.CLICK.play();
 				}
 				state = GameState.OPTIONS;
 				display.repaint();
@@ -454,7 +454,7 @@ public class Engine implements KeyListener, MouseListener{
 			if((xpos >= 100 && xpos <= 380) && (ypos >= 380 && ypos <= 440)) {
 				//If mouse is within Warm box...
 				if(useSound) {
-					sound.onButton();
+					Sound.CLICK.play();
 				}
 				colors.setScheme("WARM");
 				colors.setCurrentColors();
@@ -462,7 +462,7 @@ public class Engine implements KeyListener, MouseListener{
 			} else if((xpos >= 100 && xpos <= 380) && (ypos >= 460 && ypos <= 520)) {
 				//If mouse is within Cool box...
 				if(useSound) {
-					sound.onButton();
+					Sound.CLICK.play();
 				}
 				colors.setScheme("COOL");
 				colors.setCurrentColors();
@@ -470,7 +470,7 @@ public class Engine implements KeyListener, MouseListener{
 			} else if((xpos >= 100 && xpos <= 380) && (ypos >= 540 && ypos <= 600)) {
 				//If mouse is within Pastel box...
 				if(useSound) {
-					sound.onButton();
+					Sound.CLICK.play();
 				}
 				colors.setScheme("PASTEL");
 				colors.setCurrentColors();
@@ -478,7 +478,7 @@ public class Engine implements KeyListener, MouseListener{
 			} else if((xpos >= 100 && xpos <= 380) && (ypos >= 620 && ypos <= 680)) {
 				//If mouse is within Retro box...
 				if(useSound) {
-					sound.onButton();
+					Sound.CLICK.play();
 				}
 				colors.setScheme("RETRO");
 				colors.setCurrentColors();
@@ -486,7 +486,7 @@ public class Engine implements KeyListener, MouseListener{
 			} else if((xpos >= 100 && xpos <= 380) && (ypos >= 700 && ypos <= 760)) {
 				//If mouse is within Grey box...
 				if(useSound) {
-					sound.onButton();
+					Sound.CLICK.play();
 				}
 				colors.setScheme("GREY");
 				colors.setCurrentColors();
@@ -494,7 +494,7 @@ public class Engine implements KeyListener, MouseListener{
 			} else if((xpos >= display.getWidth()/2-140 && xpos <= display.getWidth()/2+140) && (ypos >= display.getHeight()/2+360 && ypos <= display.getHeight()/2+420)) {
 				//If mouse is within Main Menu/Return box...
 				if(useSound) {
-					sound.onButton();
+					Sound.CLICK.play();
 				}
 				if(!pause) {
 					state = GameState.MENU;
@@ -504,20 +504,25 @@ public class Engine implements KeyListener, MouseListener{
 				}
 				display.repaint();
 			} else if((xpos >= 620 && xpos <= 900) && (ypos >= 380 && ypos <= 440)) {
+				//If mouse in within Sound box
 				if(useSound) {
 					useSound = false;
 					display.repaint();
 				} else if (!useSound){
 					useSound = true;
+					Sound.CLICK.play();
 					display.repaint();
 				}
 			} else if((xpos >= 620 && xpos <= 900) && (ypos >= 540 && ypos <= 600)) {
+				//If mouse is within Music box
 				if(useMusic) {
 					useMusic = false;
 					display.repaint();
+					Sound.BACKGROUND.stop();
 				} else if (!useMusic){
 					useMusic = true;
 					display.repaint();
+					Sound.BACKGROUND.loop();
 				}
 			}
 			break;
@@ -526,7 +531,7 @@ public class Engine implements KeyListener, MouseListener{
 			if((xpos >= display.getWidth()/2-140 && xpos <= display.getWidth()/2+140) && (ypos >= display.getHeight()/2+360 && ypos <= display.getHeight()/2+420)) {
 				//If mouse is within Main Menu box...
 				if(useSound) {
-					sound.onButton();
+					Sound.CLICK.play();
 				}
 				state = GameState.MENU;
 				display.repaint();
@@ -537,14 +542,14 @@ public class Engine implements KeyListener, MouseListener{
 			if((xpos >= display.getWidth()/2-300 && xpos <= display.getWidth()/2-40) && (ypos >= display.getHeight()/2+340 && ypos <= display.getHeight()/2+400)) {
 				//If mouse is within Main Menu box...
 				if(useSound) {
-					sound.onButton();
+					Sound.CLICK.play();
 				}
 				state = GameState.MENU;
 				display.repaint();
 			} else if((xpos >= display.getWidth()/2+40 && xpos <= display.getWidth()/2+300) && (ypos >= display.getHeight()/2+340 && ypos <= display.getHeight()/2+400)) {
 				//If mouse is within Options box...
 				if(useSound) {
-					sound.onButton();
+					Sound.CLICK.play();
 				}
 				pause = true;
 				state = GameState.OPTIONS;
@@ -552,7 +557,7 @@ public class Engine implements KeyListener, MouseListener{
 			} else if((xpos >= display.getWidth()/2 && xpos <= display.getWidth()/2+80) && (ypos >= display.getHeight()/2-425 && ypos <= display.getHeight()/2-425+80)) {
 				//If mouse is within Restart button...
 				if(useSound) {
-					sound.onButton();
+					Sound.CLICK.play();
 				}
 				System.out.println("RESTART");
 				won = false;
