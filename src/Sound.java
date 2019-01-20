@@ -38,7 +38,7 @@ public enum Sound{
 		clip.stop();
 	}
 
-	//Button Sounds
+	//Unused
 	public void onButton() {
 		try {
 			clip = AudioSystem.getClip();
@@ -50,6 +50,7 @@ public enum Sound{
 		}
 	}
 	
+	//Unused
 	public void background() {
 		try {
 			clip = AudioSystem.getClip();
