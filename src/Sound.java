@@ -21,7 +21,7 @@ public enum Sound{
 		}
 	}
 	
-	public void preload() {
+	public static void preload() {
 		values();
 	}
 	

@@ -47,6 +47,7 @@ public class Engine implements KeyListener, MouseListener{
 	
 	//Initializes certain variables in the game
 	public void initializeGame() {
+		Sound.preload();
 		state = GameState.MENU;
 		colors.setScheme("WARM");
 		txg.test(); //used to test text game
