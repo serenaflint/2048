@@ -5,7 +5,7 @@ public class HighScores {
 
 	public static Write write;
 	public static Display display;
-	ArrayList<String> arrScores = new ArrayList<>(); //TODO use maps so name & score
+	ArrayList<String> arrScores = new ArrayList<>();
 	public static int numScores = 0;
 	public static boolean hasEnough = false;
 	

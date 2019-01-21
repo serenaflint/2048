@@ -77,21 +77,20 @@ public class Colors {
 		}
 	}
 	
-	//Empty Tiles
-	Color emptyA = new Color(211, 206, 195); //desaturated beige
+	//Miscellaneous Tile Colors
+	Color emptyA = new Color(211, 206, 195); //light beige-grey
+	Color defaultA = new Color(42, 38, 31); //very dark beige-grey
 	
-	//default after 2048
-	Color defaultA = new Color(42, 38, 31); //dark beige-grey
+	//Sound & Music Buttons
+	Color oOff = new Color(144, 240, 149); //soft green
+	Color oOn = new Color(240, 149, 144); //soft red
 	
-	//Semi-transparent Background
-	Color trans = new Color(254, 253, 251, 170);
-	
-	//Options Green
-	Color oOff = new Color(144, 240, 149);
-	
-	//Light Grey (for light tiles)
+	//Background & Text Colors
+	Color offwhite = new Color(254, 253, 251); //off-white
+	Color dgrey = new Color(82, 82, 82); //dark grey
 	Color lyGrey = new Color(167, 165, 154); //yellow grey
 	Color lcGrey = new Color(154, 163, 167); //blue grey
+	Color trans = new Color(254, 253, 251, 170); //transparent white
 	
 	//Warm Scheme
 	Color aW = new Color(226, 224, 207); //light beige
@@ -173,7 +172,11 @@ public class Colors {
 			break;
 			
 		}
-		
+	}
+	
+	@Override
+	public String toString() {
+		return "A: " + this.a + ", B: " + this.b + ", C: " + this.c + ", D: " + this.d + ", E: " + this.e;
 	}
 	
 }

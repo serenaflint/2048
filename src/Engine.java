@@ -23,8 +23,6 @@ public class Engine implements KeyListener, MouseListener{
 	static Font text = new Font(Font.SANS_SERIF, Font.BOLD, 30);
 	static Font stext = new Font(Font.SANS_SERIF, Font.PLAIN, 20);
 	Color a, b, c, d, e;
-	static Color dgrey = new Color(82, 82, 82);
-	static Color offwhite = new Color(254, 253, 251);
 	
 	static boolean pause = false;
 	static boolean won = false;
@@ -51,7 +49,7 @@ public class Engine implements KeyListener, MouseListener{
 		state = GameState.MENU;
 		colors.setScheme("WARM");
 		txg.test(); //used to test text game
-		Sound.BACKGROUND.play();
+		Sound.BACKGROUND.loop();
 	}
 	
 	//Draws the beginning start menu
@@ -62,7 +60,7 @@ public class Engine implements KeyListener, MouseListener{
 		
 		//title
 		g.setFont(h1);
-		g.setColor(dgrey);
+		g.setColor(colors.dgrey);
 		g.drawString("2048", display.getWidth()/2-110, display.getHeight()/2-120);
 		
 		//boxes
@@ -74,7 +72,7 @@ public class Engine implements KeyListener, MouseListener{
 		g.fillRoundRect(display.getWidth()/2-140, display.getHeight()/2+240, 280, 60, 20, 15);
 		
 		//text in the boxes
-		g.setColor(offwhite);
+		g.setColor(colors.offwhite);
 		g.setFont(text);
 		g.drawString("Play Game", display.getWidth()/2-70, display.getHeight()/2+120);
 		g.drawString("High Scores", display.getWidth()/2-80, display.getHeight()/2+200);
@@ -87,7 +85,7 @@ public class Engine implements KeyListener, MouseListener{
 		
 		//titles
 		g.setFont(h1);
-		g.setColor(dgrey);
+		g.setColor(colors.dgrey);
 		g.drawString("Options", display.getWidth()/2-180, 200);
 		
 		g.setFont(h2);
@@ -106,7 +104,7 @@ public class Engine implements KeyListener, MouseListener{
 		g.fillRoundRect(100, 700, 280, 60, 20, 15);
 		
 		//text in the boxes
-		g.setColor(offwhite);
+		g.setColor(colors.offwhite);
 		g.setFont(text);
 		g.drawString("Warm", 195, 420);
 		g.drawString("Cool", 205, 500);
@@ -117,7 +115,7 @@ public class Engine implements KeyListener, MouseListener{
 		//Main Menu (return to)
 		g.setColor(colors.getC());
 		g.fillRoundRect(display.getWidth()/2-140, display.getHeight()/2+360, 280, 60, 20, 15);
-		g.setColor(offwhite);
+		g.setColor(colors.offwhite);
 		g.setFont(text);
 		if(!pause) {
 			g.drawString("Main Menu", display.getWidth()/2-80, display.getHeight()/2+400);
@@ -126,7 +124,7 @@ public class Engine implements KeyListener, MouseListener{
 		}
 		
 		//Sound and Music Options
-		g.setColor(dgrey);
+		g.setColor(colors.dgrey);
 		g.setFont(h2);
 		g.drawString("Sound", 680, 340);
 		g.drawString("Music", 684, 510);
@@ -134,13 +132,13 @@ public class Engine implements KeyListener, MouseListener{
 			g.setColor(colors.oOff);
 			g.fillRoundRect(620, 380, 280, 60, 20, 15);
 			g.setFont(text);
-			g.setColor(offwhite);
+			g.setColor(colors.offwhite);
 			g.drawString("Turn Off", 704, 420);
 		} else if (!useSound){
 			g.setColor(colors.dW);
 			g.fillRoundRect(620, 380, 280, 60, 20, 15);
 			g.setFont(text);
-			g.setColor(offwhite);
+			g.setColor(colors.offwhite);
 			g.drawString("Turn On", 704, 420);
 		}
 		
@@ -148,13 +146,13 @@ public class Engine implements KeyListener, MouseListener{
 			g.setColor(colors.oOff);
 			g.fillRoundRect(620, 540, 280, 60, 20, 15);
 			g.setFont(text);
-			g.setColor(offwhite);
+			g.setColor(colors.offwhite);
 			g.drawString("Turn Off", 704, 580);
 		} else if(!useMusic){
 			g.setColor(colors.dW);
 			g.fillRoundRect(620, 540, 280, 60, 20, 15);
 			g.setFont(text);
-			g.setColor(offwhite);
+			g.setColor(colors.offwhite);
 			g.drawString("Turn On", 704, 580);
 		}
 	}
@@ -164,7 +162,7 @@ public class Engine implements KeyListener, MouseListener{
 		//Main Menu (return to)
 		g.setColor(colors.getC());
 		g.fillRoundRect(display.getWidth()/2-140, display.getHeight()/2+360, 280, 60, 20, 15);
-		g.setColor(offwhite);
+		g.setColor(colors.offwhite);
 		g.setFont(text);
 		g.drawString("Main Menu", display.getWidth()/2-80, display.getHeight()/2+400);
 		
@@ -173,7 +171,7 @@ public class Engine implements KeyListener, MouseListener{
 		Collections.sort(hs.arrScores, Collections.reverseOrder()); //re-sorts the list from highest to lowest
 		 
 		//title
-		g.setColor(dgrey);
+		g.setColor(colors.dgrey);
 		g.setFont(h1);
 		g.drawString("High Scores", display.getWidth()/2-300, 200);
 		
@@ -194,14 +192,14 @@ public class Engine implements KeyListener, MouseListener{
 		
 		//Title
 		g.setFont(h1);
-		g.setColor(dgrey);
+		g.setColor(colors.dgrey);
 		g.drawString("2048", display.getWidth()/2-300, display.getHeight()/2-350);
 	
 		//Current Score box
 		g.setColor(new Color(169, 157, 143)); //soft grey-brown
 		g.fillRoundRect(display.getWidth()/2+100, display.getHeight()/2-425, 200, 80, 15, 15);
 		g.setFont(stext);
-		g.setColor(offwhite);
+		g.setColor(colors.offwhite);
 		g.drawString("Score", display.getWidth()/2+175, display.getHeight()/2-400);
 		g.setFont(text);
 		g.drawString(formattedScore(), display.getWidth()/2+158, display.getHeight()/2-360);
@@ -210,7 +208,7 @@ public class Engine implements KeyListener, MouseListener{
 		g.setColor(colors.getC());
 		g.fillRoundRect(display.getWidth()/2, display.getHeight()/2-425, 80, 80, 15, 15);
 		g.setFont(tile);
-		g.setColor(offwhite);
+		g.setColor(colors.offwhite);
 		char symbolC = 0x27F2;
 		String symbolS = String.valueOf(symbolC);
 		g.drawString(symbolS, display.getWidth()/2+6, display.getHeight()/2-363);
@@ -220,25 +218,25 @@ public class Engine implements KeyListener, MouseListener{
 		g.setFont(text);
 		g.setColor(colors.getC());
 		g.fillRoundRect(display.getWidth()/2-300, display.getHeight()/2+340, 260, 60, 15, 15);
-		g.setColor(offwhite);
+		g.setColor(colors.offwhite);
 		g.drawString("Main Menu", display.getWidth()/2-250, display.getHeight()/2+380);
 		
 		//Options box
 		g.setColor(colors.getD());
 		g.fillRoundRect(display.getWidth()/2+40, display.getHeight()/2+340, 260, 60, 15, 15);
-		g.setColor(offwhite);
+		g.setColor(colors.offwhite);
 		g.drawString("Options", display.getWidth()/2+115, display.getHeight()/2+380);
 	}
 	
 	public void drawTileGrid(Graphics g) {
-		for(int row = 0; row < txg.gameGrid.length; row++) {
-			for(int col = 0; col < txg.gameGrid[row].length; col++) {
-				if(txg.gameGrid[row][col] == 0) {
+		for(int row = 0; row < TextGame.gameGrid.length; row++) {
+			for(int col = 0; col < TextGame.gameGrid[row].length; col++) {
+				if(TextGame.gameGrid[row][col] == 0) {
 					g.setColor(colors.emptyA);
 					g.fillRoundRect(display.getWidth()/2-292+148*col, display.getHeight()/2-292+148*row, 140, 140, 15, 15);
 				
 				} else {
-					formatTile(g, txg.gameGrid[row][col], row, col);
+					formatTile(g, TextGame.gameGrid[row][col], row, col);
 				}
 			}
 		}
@@ -249,7 +247,7 @@ public class Engine implements KeyListener, MouseListener{
 		drawTileGrid(g);
 		g.setColor(colors.trans);
 		g.fillRect(0, 0, display.getWidth(), display.getHeight());
-		g.setColor(dgrey);
+		g.setColor(colors.dgrey);
 		g.setFont(h1);
 		if(txg.win() && !won) {
 			g.drawString("You Win!", display.getWidth()/2-220, display.getHeight()/2+40);
@@ -267,10 +265,10 @@ public class Engine implements KeyListener, MouseListener{
 			if(colors.getA() == colors.aP) {
 				g.setColor(colors.lyGrey);
 			} else {
-				g.setColor(offwhite);
+				g.setColor(colors.offwhite);
 			}
 			g.setFont(tile);
-			g.drawString("" + txg.gameGrid[row][col], display.getWidth()/2-244+148*col, display.getHeight()/2-197+148*row);
+			g.drawString("" + TextGame.gameGrid[row][col], display.getWidth()/2-244+148*col, display.getHeight()/2-197+148*row);
 			break;
 		case 4:
 			g.setColor(colors.getB());
@@ -278,31 +276,31 @@ public class Engine implements KeyListener, MouseListener{
 			if(colors.getB() == colors.bP) {
 				g.setColor(colors.lcGrey);
 			} else {
-				g.setColor(offwhite);
+				g.setColor(colors.offwhite);
 			}
 			g.setFont(tile);
-			g.drawString("" + txg.gameGrid[row][col], display.getWidth()/2-244+148*col, display.getHeight()/2-197+148*row);
+			g.drawString("" + TextGame.gameGrid[row][col], display.getWidth()/2-244+148*col, display.getHeight()/2-197+148*row);
 			break;
 		case 8:
 			g.setColor(colors.getC());
 			g.fillRoundRect(display.getWidth()/2-292+148*col, display.getHeight()/2-292+148*row, 140, 140, 15, 15);
-			g.setColor(offwhite);
+			g.setColor(colors.offwhite);
 			g.setFont(tile);
-			g.drawString("" + txg.gameGrid[row][col], display.getWidth()/2-244+148*col, display.getHeight()/2-197+148*row);
+			g.drawString("" + TextGame.gameGrid[row][col], display.getWidth()/2-244+148*col, display.getHeight()/2-197+148*row);
 			break;
 		case 16:
 			g.setColor(colors.getD());
 			g.fillRoundRect(display.getWidth()/2-292+148*col, display.getHeight()/2-292+148*row, 140, 140, 15, 15);
-			g.setColor(offwhite);
+			g.setColor(colors.offwhite);
 			g.setFont(tile);
-			g.drawString("" + txg.gameGrid[row][col], display.getWidth()/2-266+148*col, display.getHeight()/2-197+148*row);
+			g.drawString("" + TextGame.gameGrid[row][col], display.getWidth()/2-266+148*col, display.getHeight()/2-197+148*row);
 			break;
 		case 32:
 			g.setColor(colors.getE());
 			g.fillRoundRect(display.getWidth()/2-292+148*col, display.getHeight()/2-292+148*row, 140, 140, 15, 15);
-			g.setColor(offwhite);
+			g.setColor(colors.offwhite);
 			g.setFont(tile);
-			g.drawString("" + txg.gameGrid[row][col], display.getWidth()/2-266+148*col, display.getHeight()/2-197+148*row);
+			g.drawString("" + TextGame.gameGrid[row][col], display.getWidth()/2-266+148*col, display.getHeight()/2-197+148*row);
 			break;
 		case 64:
 			g.setColor(colors.getB());
@@ -310,52 +308,52 @@ public class Engine implements KeyListener, MouseListener{
 			if(colors.getB() == colors.bP) {
 				g.setColor(colors.lcGrey);
 			} else {
-				g.setColor(offwhite);
+				g.setColor(colors.offwhite);
 			}
 			g.setFont(tile);
-			g.drawString("" + txg.gameGrid[row][col], display.getWidth()/2-266+148*col, display.getHeight()/2-197+148*row);
+			g.drawString("" + TextGame.gameGrid[row][col], display.getWidth()/2-266+148*col, display.getHeight()/2-197+148*row);
 			break;
 		case 128:
 			g.setColor(colors.getC());
 			g.fillRoundRect(display.getWidth()/2-292+148*col, display.getHeight()/2-292+148*row, 140, 140, 15, 15);
-			g.setColor(offwhite);
+			g.setColor(colors.offwhite);
 			g.setFont(tile);
-			g.drawString("" + txg.gameGrid[row][col], display.getWidth()/2-286+148*col, display.getHeight()/2-197+148*row);
+			g.drawString("" + TextGame.gameGrid[row][col], display.getWidth()/2-286+148*col, display.getHeight()/2-197+148*row);
 			break;
 		case 256:
 			g.setColor(colors.getD());
 			g.fillRoundRect(display.getWidth()/2-292+148*col, display.getHeight()/2-292+148*row, 140, 140, 15, 15);
-			g.setColor(offwhite);
+			g.setColor(colors.offwhite);
 			g.setFont(tile);
-			g.drawString("" + txg.gameGrid[row][col], display.getWidth()/2-284+148*col, display.getHeight()/2-197+148*row);
+			g.drawString("" + TextGame.gameGrid[row][col], display.getWidth()/2-284+148*col, display.getHeight()/2-197+148*row);
 			break;
 		case 512:
 			g.setColor(colors.getE());
 			g.fillRoundRect(display.getWidth()/2-292+148*col, display.getHeight()/2-292+148*row, 140, 140, 15, 15);
-			g.setColor(offwhite);
+			g.setColor(colors.offwhite);
 			g.setFont(tile);
-			g.drawString("" + txg.gameGrid[row][col], display.getWidth()/2-284+148*col, display.getHeight()/2-197+148*row);
+			g.drawString("" + TextGame.gameGrid[row][col], display.getWidth()/2-284+148*col, display.getHeight()/2-197+148*row);
 			break;
 		case 1024:
 			g.setColor(colors.getC());
 			g.fillRoundRect(display.getWidth()/2-292+148*col, display.getHeight()/2-292+148*row, 140, 140, 15, 15);
-			g.setColor(offwhite);
+			g.setColor(colors.offwhite);
 			g.setFont(h2);
-			g.drawString("" + txg.gameGrid[row][col], display.getWidth()/2-278+148*col, display.getHeight()/2-204+148*row);
+			g.drawString("" + TextGame.gameGrid[row][col], display.getWidth()/2-278+148*col, display.getHeight()/2-204+148*row);
 			break;
 		case 2048:
 			g.setColor(colors.getD());
 			g.fillRoundRect(display.getWidth()/2-292+148*col, display.getHeight()/2-292+148*row, 140, 140, 15, 15);
-			g.setColor(offwhite);
+			g.setColor(colors.offwhite);
 			g.setFont(h2);
-			g.drawString("" + txg.gameGrid[row][col], display.getWidth()/2-266+148*col, display.getHeight()/2-197+148*row);
+			g.drawString("" + TextGame.gameGrid[row][col], display.getWidth()/2-266+148*col, display.getHeight()/2-197+148*row);
 			break;
 		default:
 			g.setColor(colors.defaultA);
 			g.fillRoundRect(display.getWidth()/2-292+148*col, display.getHeight()/2-292+148*row, 140, 140, 15, 15);
-			g.setColor(offwhite);
+			g.setColor(colors.offwhite);
 			g.setFont(h2);
-			g.drawString("" + txg.gameGrid[row][col], display.getWidth()/2-266+148*col, display.getHeight()/2-197+148*row);
+			g.drawString("" + TextGame.gameGrid[row][col], display.getWidth()/2-266+148*col, display.getHeight()/2-197+148*row);
 			break;
 		}
 	}
@@ -516,6 +514,10 @@ public class Engine implements KeyListener, MouseListener{
 				}
 			} else if((xpos >= 620 && xpos <= 900) && (ypos >= 540 && ypos <= 600)) {
 				//If mouse is within Music box
+				if(useSound) {
+					Sound.CLICK.play();
+					display.repaint();
+				}
 				if(useMusic) {
 					useMusic = false;
 					display.repaint();
@@ -560,7 +562,7 @@ public class Engine implements KeyListener, MouseListener{
 				if(useSound) {
 					Sound.CLICK.play();
 				}
-				System.out.println("RESTART");
+				System.out.println("RESTART\n"); //Used for debugging
 				won = false;
 				txg.clearGrid();
 				cscore = 0;
@@ -582,7 +584,8 @@ public class Engine implements KeyListener, MouseListener{
 			}
 			break;
 		default:
-			System.out.println("DEFAULT");
+			//This case should never be reached
+			System.out.println("DEFAULT"); //Used for debugging
 			break;
 		}
 	}

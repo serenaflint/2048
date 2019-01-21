@@ -30,11 +30,6 @@ public class Run extends JFrame{
 }
 
 /* TODO
- * Make sure everything is readable
- * Algorithm to search for a 2048 tile to win (yay)
  * Animations :( (In KeyPressed cases? tiles slide from value + value*i to value + value*(1+i)
  * 		Error handles for edges and blah
- * Sound!
- * Fix generating tiles issue
- * Fix false GAME OVER
  */

@@ -17,7 +17,7 @@ public class Display extends JComponent{
 	
 	@Override
 	public void paintComponent(Graphics g) {
-		g.setColor(new Color(254, 253, 251));
+		g.setColor(new Color(254, 253, 251)); //off-white background
 		g.drawRect(0, 0, getWidth(), getHeight());
 		
 		switch(engine.state) {
@@ -27,13 +27,11 @@ public class Display extends JComponent{
 			break;
 			
 		case RUN:
-			//plays game
 			engine.drawRShell(g);
 			engine.drawTileGrid(g);
 			break;
 		
 		case END:
-			//final screen, option to play again etc.
 			engine.drawEnd(g);
 			break;
 		

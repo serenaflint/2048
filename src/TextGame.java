@@ -34,8 +34,6 @@ public class TextGame {
 		printGame();
 	}
 	
-	
-	
 	//method for placing a new tile
 	public static void onClickTiles() {
 		boolean blank = false;
@@ -184,7 +182,7 @@ public class TextGame {
 			onClickTiles();
 	}
 	
-	// Checks to see 1. If any tiles are blank or 2. if theres any moves left to make. Returns false if it's time for the game to end
+	// Checks to see 1. If any tiles are blank or 2. if there are any moves left to make. Returns false if it's time for the game to end
 	public boolean checkMoves() {
 		for (int row = 0; row < gameGrid.length; row++) {// row loop
 			for (int col = 0; col < gameGrid.length; col++) {// col loop
@@ -207,16 +205,13 @@ public class TextGame {
 		return false;
 	}
 	
+	//Checks to see if there is a 2048 tile
 	public boolean win() {
 		for (int row = 0; row < gameGrid.length; row++) 
 			for (int col = 0; col < gameGrid.length; col++)
 				if(gameGrid[row][col] == 2048)
 					return true;
 		return false;
-	}
-	
-	public static void runGame() {
-		
 	}
 	
 	//Prints game in grid format
@@ -230,38 +225,13 @@ public class TextGame {
 		System.out.println("");
 	}
 	
+	//Clears the game grid
 	public void clearGrid() {
 		for (int i = 0; i < gameGrid.length; i++) {
 	        for(int j = 0; j < gameGrid[i].length; j++) {
-	          gameGrid[i][j] =0;
+	          gameGrid[i][j] = 0;
 	        }
 	     }
 	}
-
-	/* public static void main(String[] args) {
-		// Alright sluts, we're making this textbased first
-		startingTiles();
-		printGame();
-		onClickTiles();
-		printGame();
-		onClickTiles();
-		onClickTiles();
-		onClickTiles();
-		onClickTiles();
-		onClickTiles();
-		onClickTiles();
-		onClickTiles();
-		onClickTiles();
-		onClickTiles();
-		onClickTiles();
-		printGame();
-		moveLeft();
-		printGame();
-		onClickTiles();
-		printGame();
-		
-	}
-
- */
 	
 }
