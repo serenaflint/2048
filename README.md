@@ -1,2 +1,6 @@
 # 2048
-Remake of the popular 2048 game (WIP)
+Remake of the popular 2048 game
+
+TODO: 
+Needs scoring system.
+Animations?
