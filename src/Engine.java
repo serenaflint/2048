@@ -4,12 +4,14 @@ import java.util.*;
 
 public class Engine implements KeyListener, MouseListener{
 
+	//enum to control game states
 	public enum GameState{
 		MENU, RUN, END, OPTIONS, HS
 	}
 	
 	public GameState state;
 	
+	//create instances of other classes
 	public static Display display;
 	public static Write write;
 	public static Colors colors;
@@ -17,6 +19,7 @@ public class Engine implements KeyListener, MouseListener{
 	public static TextGame txg;
 	public static Sound sound;
 	
+	//used for styling
 	static Font h1 = new Font(Font.SANS_SERIF, Font.BOLD, 100);
 	static Font h2 = new Font(Font.SANS_SERIF, Font.BOLD, 50);
 	static Font tile = new Font(Font.SANS_SERIF, Font.BOLD, 75);
@@ -24,6 +27,7 @@ public class Engine implements KeyListener, MouseListener{
 	static Font stext = new Font(Font.SANS_SERIF, Font.PLAIN, 20);
 	Color a, b, c, d, e;
 	
+	//booleans to control certain conditions
 	static boolean pause = false;
 	static boolean won = false;
 	static boolean useSound = true;
@@ -228,6 +232,7 @@ public class Engine implements KeyListener, MouseListener{
 		g.drawString("Options", display.getWidth()/2+115, display.getHeight()/2+380);
 	}
 	
+	//creates the grid of tiles
 	public void drawTileGrid(Graphics g) {
 		for(int row = 0; row < TextGame.gameGrid.length; row++) {
 			for(int col = 0; col < TextGame.gameGrid[row].length; col++) {
@@ -242,6 +247,7 @@ public class Engine implements KeyListener, MouseListener{
 		}
 	}
 	
+	//Draws the end screen
 	public void drawEnd(Graphics g) {
 		drawRShell(g);
 		drawTileGrid(g);
@@ -257,6 +263,7 @@ public class Engine implements KeyListener, MouseListener{
 
 	}
 	
+	//determines how each type of tile appears
 	public void formatTile(Graphics g, int val, int row, int col) {
 		switch (val) {
 		case 2:
@@ -376,7 +383,9 @@ public class Engine implements KeyListener, MouseListener{
 	@Override
  	public void keyPressed(KeyEvent e) {
 		switch(e.getKeyCode()) {
+		case KeyEvent.VK_W:
 		case KeyEvent.VK_UP:
+			System.out.println("Key Pressed: " + KeyEvent.getKeyText(e.getKeyCode()));
 			display.repaint();
 			txg.moveUp();
 			txg.printGame();
@@ -385,7 +394,10 @@ public class Engine implements KeyListener, MouseListener{
 				state = GameState.END;
 			}
 			break;
+			
+		case KeyEvent.VK_S:
 		case KeyEvent.VK_DOWN:
+			System.out.println("Key Pressed: " + KeyEvent.getKeyText(e.getKeyCode()));
 			display.repaint();
 			txg.moveDown();
 			txg.printGame();
@@ -395,7 +407,10 @@ public class Engine implements KeyListener, MouseListener{
 			}
 			
 			break;
+			
+		case KeyEvent.VK_A:
 		case KeyEvent.VK_LEFT:
+			System.out.println("Key Pressed: " + KeyEvent.getKeyText(e.getKeyCode()));
 			display.repaint();
 			txg.moveLeft();
 			txg.printGame();
@@ -404,7 +419,10 @@ public class Engine implements KeyListener, MouseListener{
 				state = GameState.END;
 			}
 			break;
+			
+		case KeyEvent.VK_D:
 		case KeyEvent.VK_RIGHT:
+			System.out.println("Key Pressed: " + KeyEvent.getKeyText(e.getKeyCode()));
 			display.repaint();
 			txg.moveRight();
 			txg.printGame();
@@ -413,6 +431,8 @@ public class Engine implements KeyListener, MouseListener{
 				state = GameState.END;
 			}
 			break;
+		default:
+			System.out.println("Key Pressed: " + KeyEvent.getKeyText(e.getKeyCode()));
 		}
 	}
 
