@@ -1,9 +1,12 @@
+import java.util.ArrayList;
 import java.util.Random;
 
 public class TextGame {
 	
 	//the grid boi
 	static int[][] gameGrid = new int[4][4];
+	
+	static int moveCount = 0;
 	
 	//method for setting the game at the start
 	public static void startingTiles() {
@@ -26,7 +29,6 @@ public class TextGame {
 			// blank is set back to false so it can go through the loop to find a second blank space
 			blank = false;
 		}
-		
 	}
 	
 	public void test() {
@@ -44,6 +46,15 @@ public class TextGame {
 			Random rand = new Random(); 
 			randRow = rand.nextInt(4);	
 			randCol = rand.nextInt(4);
+			ArrayList<Integer> twosFours = new ArrayList<Integer>();
+			for(int i = 0; i < 10; i++) {
+				if(i < 8) {
+					twosFours.add(2);
+				}
+				else {
+					twosFours.add(4);
+				}
+			}
 			//If the random indices are blank, sets it to 2 or 4
 			if(gameGrid[randRow][randCol] == 0) {
 				// Finds a random int 0 or 1, then adds 1 and multiplies by 2 to get either 2 or 4
@@ -81,8 +92,13 @@ public class TextGame {
 				}// end of compare loop
 			}//end of row loop
 		}// end of col loop 
-		if(tileMoved)
+		if(tileMoved) {
 			onClickTiles();
+			moveCount++;
+			System.out.println("Valid Move!");
+		} else if(!tileMoved) {
+			System.out.println("Invalid Move!");
+		}
 	}
 	
 	public void moveUp() {
@@ -113,8 +129,13 @@ public class TextGame {
 				}// end of compare loop
 			}//end of row loop
 		}// end of col loop
-		if(tileMoved)
+		if(tileMoved) {
 			onClickTiles();
+			moveCount++;
+			System.out.println("Valid Move!");
+		} else if(!tileMoved) {
+			System.out.println("Invalid Move!");
+		}
 	}
 	
 	public void moveLeft() {
@@ -145,8 +166,13 @@ public class TextGame {
 				}// end of compare loop
 			}//end of row loop
 		}// end of col loop
-		if(tileMoved)
+		if(tileMoved) {
 			onClickTiles();
+			moveCount++;
+			System.out.println("Valid Move!");
+		} else if(!tileMoved) {
+			System.out.println("Invalid Move!");
+		}
 	}
 	
 	public void moveRight() {
@@ -178,8 +204,13 @@ public class TextGame {
 				}// end of compare loop
 			}//end of col loop
 		}// end of row loop
-		if(tileMoved)
+		if(tileMoved) {
 			onClickTiles();
+			moveCount++;
+			System.out.println("Valid Move!");
+		} else if(!tileMoved) {
+			System.out.println("Invalid Move!");
+		}
 	}
 	
 	// Checks to see 1. If any tiles are blank or 2. if there are any moves left to make. Returns false if it's time for the game to end
@@ -232,6 +263,7 @@ public class TextGame {
 	          gameGrid[i][j] = 0;
 	        }
 	     }
+		moveCount = 0;
 	}
 	
 }

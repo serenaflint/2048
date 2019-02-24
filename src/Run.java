@@ -35,7 +35,6 @@ public class Run extends JFrame{
  * 		Error handles for edges and blah
  * q and r for quit and reset
  * verify if quit/reset
- * a,s,d,w for movement?
  * valid moves made counter, print highest tile
  * fix probabilities for 2 and 4 gen, 0.8 for 2 and 0.2 for 4
  * 
