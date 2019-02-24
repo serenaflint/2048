@@ -7,6 +7,7 @@ public class TextGame {
 	static int[][] gameGrid = new int[4][4];
 	
 	static int moveCount = 0;
+	static int highestTile = 0;
 	
 	public void test() {
 		onClickTiles();
@@ -55,6 +56,8 @@ public class TextGame {
 							tileMoved = true;
 						gameGrid[row][col] = gameGrid[compare][col];
 						gameGrid[compare][col] = 0;
+						if(gameGrid[row][col] > highestTile)
+							highestTile = gameGrid[row][col];
 					}// end of if
 					else if (gameGrid[row][col] == gameGrid[compare][col]) {
 						val = (gameGrid[row][col]) * 2;
@@ -62,9 +65,13 @@ public class TextGame {
 						gameGrid[row][col] = val;
 						val = 0;
 						tileMoved = true;
+						if(gameGrid[row][col] > highestTile)
+							highestTile = gameGrid[row][col];
 						break;
 					} // end of else
 					else if (gameGrid[row][col] != gameGrid[compare][col] && gameGrid[row][col]!=0 && gameGrid[compare][col]!=0) {
+						if(gameGrid[row][col] > highestTile)
+							highestTile = gameGrid[row][col];
 						break;
 					} // end of else
 				}// end of compare loop
@@ -73,10 +80,10 @@ public class TextGame {
 		if(tileMoved) {
 			onClickTiles();
 			moveCount++;
-			System.out.println("Valid Move! Total Moves: " + moveCount);
+			System.out.println("Valid Move! Total Moves: " + moveCount + " Max on board tile: " + highestTile);
 			System.out.println();
 		} else if(!tileMoved) {
-			System.out.println("Invalid Move! Total Moves: " + moveCount);
+			System.out.println("Invalid Move! Total Moves: " + moveCount + " Max on board tile: " + highestTile);
 			System.out.println();
 		}
 	}
@@ -88,12 +95,13 @@ public class TextGame {
 		for (int col = 0; col < gameGrid.length; col++) {// col loop
 			for (int row = 0; row < gameGrid.length; row++) {// row loop
 				for(int compare = row+1; compare<gameGrid.length; compare++) {
-					
 					if (gameGrid[row][col] == 0) {
 						if(gameGrid[compare][col] != 0)
 							tileMoved = true;
 						gameGrid[row][col] = gameGrid[compare][col];
 						gameGrid[compare][col] = 0;
+						if(gameGrid[row][col] > highestTile)
+							highestTile = gameGrid[row][col];
 					}// end of if
 					else if (gameGrid[row][col] == gameGrid[compare][col]) {
 						val = (gameGrid[row][col]) * 2;
@@ -101,9 +109,13 @@ public class TextGame {
 						gameGrid[row][col] = val;
 						val = 0;
 						tileMoved = true;
+						if(gameGrid[row][col] > highestTile)
+							highestTile = gameGrid[row][col];
 						break;
 					} // end of else
 					else if (gameGrid[row][col] != gameGrid[compare][col] && gameGrid[row][col]!=0 && gameGrid[compare][col]!=0) {
+						if(gameGrid[row][col] > highestTile)
+							highestTile = gameGrid[row][col];
 						break;
 					} // end of else
 				}// end of compare loop
@@ -112,10 +124,10 @@ public class TextGame {
 		if(tileMoved) {
 			onClickTiles();
 			moveCount++;
-			System.out.println("Valid Move! Total Moves: " + moveCount);
+			System.out.println("Valid Move! Total Moves: " + moveCount + " Max on board tile: " + highestTile);
 			System.out.println();
 		} else if(!tileMoved) {
-			System.out.println("Invalid Move! Total Moves: " + moveCount);
+			System.out.println("Invalid Move! Total Moves: " + moveCount + " Max on board tile: " + highestTile);
 			System.out.println();
 		}
 	}
@@ -133,6 +145,8 @@ public class TextGame {
 							tileMoved = true;
 						gameGrid[row][col] = gameGrid[row][compare];
 						gameGrid[row][compare] = 0;
+						if(gameGrid[row][col] > highestTile)
+							highestTile = gameGrid[row][col];
 					}// end of if
 					else if (gameGrid[row][col] == gameGrid[row][compare]) {
 						val = (gameGrid[row][col]) * 2;
@@ -140,9 +154,13 @@ public class TextGame {
 						gameGrid[row][col] = val;
 						val = 0;
 						tileMoved = true;
+						if(gameGrid[row][col] > highestTile)
+							highestTile = gameGrid[row][col];
 						break;
 					} // end of else
 					else if (gameGrid[row][col] != gameGrid[row][compare] && gameGrid[row][col]!=0 && gameGrid[row][compare]!=0) {
+						if(gameGrid[row][col] > highestTile)
+							highestTile = gameGrid[row][col];
 						break;
 					} // end of else
 				}// end of compare loop
@@ -151,10 +169,10 @@ public class TextGame {
 		if(tileMoved) {
 			onClickTiles();
 			moveCount++;
-			System.out.println("Valid Move! Total Moves: " + moveCount);
+			System.out.println("Valid Move! Total Moves: " + moveCount + " Max on board tile: " + highestTile);
 			System.out.println();
 		} else if(!tileMoved) {
-			System.out.println("Invalid Move! Total Moves: " + moveCount);
+			System.out.println("Invalid Move! Total Moves: " + moveCount + " Max on board tile: " + highestTile);
 			System.out.println();
 		}
 	}
@@ -172,6 +190,8 @@ public class TextGame {
 							tileMoved = true;
 						gameGrid[row][col] = gameGrid[row][compare];
 						gameGrid[row][compare] = 0;
+						if(gameGrid[row][col] > highestTile)
+							highestTile = gameGrid[row][col];
 						
 					}// end of if
 					else if (gameGrid[row][col] == gameGrid[row][compare]) {
@@ -180,9 +200,13 @@ public class TextGame {
 						gameGrid[row][col] = val;
 						val = 0;
 						tileMoved = true;
+						if(gameGrid[row][col] > highestTile)
+							highestTile = gameGrid[row][col];
 						break;
 					} // end of else
 					else if (gameGrid[row][col] != gameGrid[row][compare] && gameGrid[row][col]!=0 && gameGrid[row][compare]!=0) {
+						if(gameGrid[row][col] > highestTile)
+							highestTile = gameGrid[row][col];
 						break;
 					} // end of else
 				}// end of compare loop
@@ -191,10 +215,10 @@ public class TextGame {
 		if(tileMoved) {
 			onClickTiles();
 			moveCount++;
-			System.out.println("Valid Move! Total Moves: " + moveCount);
+			System.out.println("Valid Move! Total Moves: " + moveCount + " Max on board tile: " + highestTile);
 			System.out.println();
 		} else if(!tileMoved) {
-			System.out.println("Invalid Move! Total Moves: " + moveCount);
+			System.out.println("Invalid Move! Total Moves: " + moveCount + " Max on board tile: " + highestTile);
 			System.out.println();
 		}
 	}
