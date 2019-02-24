@@ -46,6 +46,8 @@ public class Display extends JComponent{
 		case RESTART:
 			engine.verify(g);
 			break;
+		case QUIT:
+			engine.verify(g);
 		}
 	}
 	

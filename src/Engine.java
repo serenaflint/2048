@@ -2,11 +2,13 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
 
+import javax.swing.SwingUtilities;
+
 public class Engine implements KeyListener, MouseListener{
 
 	//enum to control game states
 	public enum GameState{
-		MENU, RUN, END, OPTIONS, HS, RESTART
+		MENU, RUN, END, OPTIONS, HS, RESTART, QUIT
 	}
 	
 	public GameState state;
@@ -472,6 +474,8 @@ public class Engine implements KeyListener, MouseListener{
 				TextGame.moveCount = 0;
 				state = GameState.RUN;
 				display.repaint();
+			} else if(state ==  GameState.QUIT) {
+				System.exit(0);
 			}
 			
 			display.repaint();
@@ -484,8 +488,15 @@ public class Engine implements KeyListener, MouseListener{
 			state = GameState.RUN;
 			display.repaint();
 			break;
+		case KeyEvent.VK_Q:
+			System.out.println("Key Pressed: " + KeyEvent.getKeyText(e.getKeyCode()));
+			state = GameState.QUIT;
+			display.repaint();
+			System.out.print("Are you sure you want to quit? Y/N\n");
+			break;
 		default:
 			System.out.println("Key Pressed: " + KeyEvent.getKeyText(e.getKeyCode()));
+			break;
 		}
 	}
 
@@ -662,6 +673,15 @@ public class Engine implements KeyListener, MouseListener{
 				TextGame.moveCount = 0;
 				state = GameState.RUN;
 				display.repaint();
+			} else if((xpos >= display.getWidth()/2+40 && xpos <= display.getWidth()/2+120) && (ypos >= display.getHeight()/2+40 && ypos <= display.getHeight()/2+120)){
+				state = GameState.RUN;
+				display.repaint();
+			}
+			break;
+		case QUIT:
+			if((xpos >= display.getWidth()/2-120 && xpos <= display.getWidth()/2-40) && (ypos >= display.getHeight()/2+40 && ypos <= display.getHeight()/2+120)) {
+				System.out.println("QUIT\n"); //Used for debugging
+				System.exit(0);
 			} else if((xpos >= display.getWidth()/2+40 && xpos <= display.getWidth()/2+120) && (ypos >= display.getHeight()/2+40 && ypos <= display.getHeight()/2+120)){
 				state = GameState.RUN;
 				display.repaint();
