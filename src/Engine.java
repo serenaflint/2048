@@ -410,6 +410,8 @@ public class Engine implements KeyListener, MouseListener{
 			txg.printGame();
 			if(!txg.checkMoves() || (txg.win() && won == false)) {
 				System.out.println("GAME OVER");
+				System.out.println("Total Moves: " + TextGame.moveCount + ". Max on board tile: " + TextGame.highestTile + ". Score: " + TextGame.score);
+				System.out.println();
 				state = GameState.END;
 			}
 			break;
@@ -422,6 +424,8 @@ public class Engine implements KeyListener, MouseListener{
 			txg.printGame();
 			if(!txg.checkMoves() || (txg.win() && won == false)) {
 				System.out.println("GAME OVER");
+				System.out.println("Total Moves: " + TextGame.moveCount + ". Max on board tile: " + TextGame.highestTile + ". Score: " + TextGame.score);
+				System.out.println();
 				state = GameState.END;
 			}
 			
@@ -435,6 +439,8 @@ public class Engine implements KeyListener, MouseListener{
 			txg.printGame();
 			if(!txg.checkMoves() || (txg.win() && won == false)) {
 				System.out.println("GAME OVER");
+				System.out.println("Total Moves: " + TextGame.moveCount + ". Max on board tile: " + TextGame.highestTile + ". Score: " + TextGame.score);
+				System.out.println();
 				state = GameState.END;
 			}
 			break;
@@ -447,6 +453,8 @@ public class Engine implements KeyListener, MouseListener{
 			txg.printGame();
 			if(!txg.checkMoves() || (txg.win() && won == false)) {
 				System.out.println("GAME OVER");
+				System.out.println("Total Moves: " + TextGame.moveCount + ". Max on board tile: " + TextGame.highestTile + ". Score: " + TextGame.score);
+				System.out.println();
 				state = GameState.END;
 			}
 			break;
