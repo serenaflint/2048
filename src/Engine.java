@@ -386,6 +386,7 @@ public class Engine implements KeyListener, MouseListener{
 	
 	//Formats score to look more populated
 	public String formattedScore() {
+		cscore = TextGame.score;
 		if(cscore < 10) {
 			return "0000" + cscore;
 		} else if(cscore < 100) {
