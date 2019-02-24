@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Random;
 
 public class TextGame {
@@ -44,6 +45,15 @@ public class TextGame {
 			Random rand = new Random(); 
 			randRow = rand.nextInt(4);	
 			randCol = rand.nextInt(4);
+			ArrayList<Integer> twosFours = new ArrayList<Integer>();
+			for(int i = 0; i < 10; i++) {
+				if(i < 8) {
+					twosFours.add(2);
+				}
+				else {
+					twosFours.add(4);
+				}
+			}
 			//If the random indices are blank, sets it to 2 or 4
 			if(gameGrid[randRow][randCol] == 0) {
 				// Finds a random int 0 or 1, then adds 1 and multiplies by 2 to get either 2 or 4
