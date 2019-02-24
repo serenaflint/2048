@@ -454,7 +454,7 @@ public class Engine implements KeyListener, MouseListener{
 			}
 			state = GameState.RESTART;
 			display.repaint();
-			System.out.print("Are you sure you want to restart? Y/N");
+			System.out.print("Are you sure you want to restart? Y/N\n");
 			
 			break;
 		case KeyEvent.VK_Y:
@@ -462,6 +462,7 @@ public class Engine implements KeyListener, MouseListener{
 				Sound.CLICK.play();
 			}
 			if(state == GameState.RESTART) {
+				System.out.println("Restarting...");
 				won = false;
 				txg.clearGrid();
 				cscore = 0;
