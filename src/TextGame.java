@@ -8,42 +8,9 @@ public class TextGame {
 	
 	static int moveCount = 0;
 	
-	//method for setting the game at the start
-	public static void startingTiles() {
-		boolean blank = false;
-		int randRow = 0;
-		int randCol = 0;
-		//finds 2 blank spaces
-		for(int i = 0; i < 2; i ++) {
-			while(blank == false) {
-				// create instance of Random class and finds random tile
-				Random rand = new Random(); 
-				randRow = rand.nextInt(4);	
-				randCol = rand.nextInt(4);
-				//If the random indices are blank, sets it to 2 or 4
-				ArrayList<Integer> twosFours = new ArrayList<Integer>();
-				for(int i = 0; i < 10; i++) {
-					if(i < 8) {
-						twosFours.add(2);
-					}
-					else {
-						twosFours.add(4);
-					}
-				}
-				//If the random indices are blank, sets it to 2 or 4
-				if(gameGrid[randRow][randCol] == 0) {
-					// Finds a random index in twosFours array and sets it to that value
-					gameGrid[randRow][randCol] = twosFours.get(rand.nextInt(10));
-					blank = true;
-				}
-			}
-			// blank is set back to false so it can go through the loop to find a second blank space
-			blank = false;
-		}
-	}
-	
 	public void test() {
-		startingTiles();
+		onClickTiles();
+		onClickTiles();
 		printGame();
 	}
 	
