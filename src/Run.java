@@ -32,10 +32,8 @@ public class Run extends JFrame{
 
 /* TODO
  * Animations :( (In KeyPressed cases? tiles slide from value + value*i to value + value*(1+i)
- * 		Error handles for edges and blah
- * q and r for quit and reset
- * verify if quit/reset
- * print highest tile
  * 
- * print on console after every move the maximum tile and number of valid moves made
+ * verify if quit
+ * 
+ * print on console after every move the maximum tile
  */
