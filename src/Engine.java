@@ -481,6 +481,8 @@ public class Engine implements KeyListener, MouseListener{
 				cscore = 0;
 				txg.test();
 				TextGame.moveCount = 0;
+				TextGame.highestTile = 0;
+				TextGame.score = 0;
 				state = GameState.RUN;
 				display.repaint();
 			} else if(state ==  GameState.QUIT) {
@@ -680,6 +682,8 @@ public class Engine implements KeyListener, MouseListener{
 				cscore = 0;
 				txg.test();
 				TextGame.moveCount = 0;
+				TextGame.highestTile = 0;
+				TextGame.score = 0;
 				state = GameState.RUN;
 				display.repaint();
 			} else if((xpos >= display.getWidth()/2+40 && xpos <= display.getWidth()/2+120) && (ypos >= display.getHeight()/2+40 && ypos <= display.getHeight()/2+120)){
