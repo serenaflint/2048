@@ -170,6 +170,8 @@ public class Engine implements KeyListener, MouseListener{
 		g.setColor(colors.offwhite);
 		g.setFont(text);
 		g.drawString("Main Menu", display.getWidth()/2-80, display.getHeight()/2+400);
+	
+		hs.arrScores.clear(); //further prevents double counting
 		
 		hs.checkScores();
 		hs.getScores();

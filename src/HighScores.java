@@ -21,7 +21,7 @@ public class HighScores {
 				numScores++;
 				if(hasEnough) { //prevents double counting lines
 					arrScores.add(line);
-					//System.out.println(line); //used for debugging
+					//System.out.println(line); //used for debugging		
 				}
 			}
 		} catch (IOException ex) {
