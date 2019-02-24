@@ -42,6 +42,10 @@ public class Display extends JComponent{
 		case OPTIONS:
 			engine.drawOptions(g);
 			break;
+			
+		case RESTART:
+			engine.verify(g);
+			break;
 		}
 	}
 	

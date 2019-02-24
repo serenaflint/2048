@@ -6,7 +6,7 @@ public class Engine implements KeyListener, MouseListener{
 
 	//enum to control game states
 	public enum GameState{
-		MENU, RUN, END, OPTIONS, HS
+		MENU, RUN, END, OPTIONS, HS, RESTART
 	}
 	
 	public GameState state;
@@ -32,6 +32,7 @@ public class Engine implements KeyListener, MouseListener{
 	static boolean won = false;
 	static boolean useSound = true;
 	static boolean useMusic = true;
+	static boolean r = false;
 	static int cscore = 0;
 	
 	//Constructor
@@ -260,7 +261,23 @@ public class Engine implements KeyListener, MouseListener{
 		} else {
 			g.drawString("Game Over", display.getWidth()/2-265, display.getHeight()/2+40);
 		}
-
+	}
+	
+	public void verify(Graphics g) {
+		drawRShell(g);
+		drawTileGrid(g);
+		g.setColor(colors.trans);
+		g.fillRect(0, 0, display.getWidth(), display.getHeight());
+		g.setColor(colors.dgrey);
+		g.setFont(h1);
+		g.drawString("Are you sure?", display.getWidth()/2-285, display.getHeight()/2-30);
+		g.setColor(new Color(169, 157, 143)); //soft grey-brown
+		g.fillRoundRect(display.getWidth()/2-120, display.getHeight()/2+40, 80, 80, 20, 15); //Y
+		g.fillRoundRect(display.getWidth()/2+40, display.getHeight()/2+40, 80, 80, 20, 15); //N
+		g.setColor(colors.offwhite);
+		g.setFont(h2);
+		g.drawString("Y", display.getWidth()/2-95, display.getHeight()/2+100); //Y
+		g.drawString("N", display.getWidth()/2+65 , display.getHeight()/2+100); //Y
 	}
 	
 	//determines how each type of tile appears
@@ -435,11 +452,32 @@ public class Engine implements KeyListener, MouseListener{
 			if(useSound) {
 				Sound.CLICK.play();
 			}
-			System.out.println("RESTART\n"); //Used for debugging
-			won = false;
-			txg.clearGrid();
-			cscore = 0;
-			txg.test();
+			state = GameState.RESTART;
+			display.repaint();
+			System.out.print("Are you sure you want to restart? Y/N");
+			
+			break;
+		case KeyEvent.VK_Y:
+			if(useSound) {
+				Sound.CLICK.play();
+			}
+			if(state == GameState.RESTART) {
+				won = false;
+				txg.clearGrid();
+				cscore = 0;
+				txg.test();
+				TextGame.moveCount = 0;
+				state = GameState.RUN;
+				display.repaint();
+			}
+			
+			display.repaint();
+			break;
+		case KeyEvent.VK_N:
+			if(useSound) {
+				Sound.CLICK.play();
+			}
+			state = GameState.RUN;
 			display.repaint();
 			break;
 		default:
@@ -593,11 +631,7 @@ public class Engine implements KeyListener, MouseListener{
 				if(useSound) {
 					Sound.CLICK.play();
 				}
-				System.out.println("RESTART\n"); //Used for debugging
-				won = false;
-				txg.clearGrid();
-				cscore = 0;
-				txg.test();
+				state = GameState.RESTART;
 				display.repaint();
 			}
 			break;
@@ -610,6 +644,21 @@ public class Engine implements KeyListener, MouseListener{
 				won = false;
 				txg.clearGrid();
 				txg.test();
+				state = GameState.RUN;
+				display.repaint();
+			}
+			break;
+		case RESTART:
+			if((xpos >= display.getWidth()/2-120 && xpos <= display.getWidth()/2-40) && (ypos >= display.getHeight()/2+40 && ypos <= display.getHeight()/2+120)) {
+				System.out.println("RESTART\n"); //Used for debugging
+				won = false;
+				txg.clearGrid();
+				cscore = 0;
+				txg.test();
+				TextGame.moveCount = 0;
+				state = GameState.RUN;
+				display.repaint();
+			} else if((xpos >= display.getWidth()/2+40 && xpos <= display.getWidth()/2+120) && (ypos >= display.getHeight()/2+40 && ypos <= display.getHeight()/2+120)){
 				state = GameState.RUN;
 				display.repaint();
 			}
