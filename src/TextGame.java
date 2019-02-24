@@ -37,32 +37,32 @@ public class TextGame {
 	}
 	
 	//method for placing a new tile
-	public static void onClickTiles() {
-		boolean blank = false;
-		int randRow = 0;
-		int randCol = 0;
-		while(blank == false) {
-			// create instance of Random class and finds random tile
-			Random rand = new Random(); 
-			randRow = rand.nextInt(4);	
-			randCol = rand.nextInt(4);
-			ArrayList<Integer> twosFours = new ArrayList<Integer>();
-			for(int i = 0; i < 10; i++) {
-				if(i < 8) {
-					twosFours.add(2);
+		public static void onClickTiles() {
+			boolean blank = false;
+			int randRow = 0;
+			int randCol = 0;
+			while(blank == false) {
+				// create instance of Random class and finds random tile
+				Random rand = new Random(); 
+				randRow = rand.nextInt(4);	
+				randCol = rand.nextInt(4);
+				ArrayList<Integer> twosFours = new ArrayList<Integer>();
+				for(int i = 0; i < 10; i++) {
+					if(i < 8) {
+						twosFours.add(2);
+					}
+					else {
+						twosFours.add(4);
+					}
 				}
-				else {
-					twosFours.add(4);
+				//If the random indices are blank, sets it to 2 or 4
+				if(gameGrid[randRow][randCol] == 0) {
+					// Finds a random int 0 or 1, then adds 1 and multiplies by 2 to get either 2 or 4
+					gameGrid[randRow][randCol] = twosFours.get(rand.nextInt(10));
+					blank = true;
 				}
-			}
-			//If the random indices are blank, sets it to 2 or 4
-			if(gameGrid[randRow][randCol] == 0) {
-				// Finds a random int 0 or 1, then adds 1 and multiplies by 2 to get either 2 or 4
-				gameGrid[randRow][randCol] = (rand.nextInt(2)+1)*2;
-				blank = true;
 			}
 		}
-	}
 	
 	public void moveDown() {
 		int val = 0;
