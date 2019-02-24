@@ -32,6 +32,4 @@ public class Run extends JFrame{
 
 /* TODO
  * Animations :( (In KeyPressed cases? tiles slide from value + value*i to value + value*(1+i)
- * 
- * print on console after every move the maximum tile
  */
