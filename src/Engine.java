@@ -449,6 +449,7 @@ public class Engine implements KeyListener, MouseListener{
 			}
 			break;
 		case KeyEvent.VK_R:
+			System.out.println("Key Pressed: " + KeyEvent.getKeyText(e.getKeyCode()));
 			if(useSound) {
 				Sound.CLICK.play();
 			}
@@ -458,6 +459,7 @@ public class Engine implements KeyListener, MouseListener{
 			
 			break;
 		case KeyEvent.VK_Y:
+			System.out.println("Key Pressed: " + KeyEvent.getKeyText(e.getKeyCode()));
 			if(useSound) {
 				Sound.CLICK.play();
 			}
@@ -475,6 +477,7 @@ public class Engine implements KeyListener, MouseListener{
 			display.repaint();
 			break;
 		case KeyEvent.VK_N:
+			System.out.println("Key Pressed: " + KeyEvent.getKeyText(e.getKeyCode()));
 			if(useSound) {
 				Sound.CLICK.play();
 			}
