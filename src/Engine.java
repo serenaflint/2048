@@ -2,8 +2,6 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
 
-import javax.swing.SwingUtilities;
-
 public class Engine implements KeyListener, MouseListener{
 
 	//enum to control game states
@@ -265,6 +263,7 @@ public class Engine implements KeyListener, MouseListener{
 		}
 	}
 	
+	//Asks user to verify if they want to quit/restart
 	public void verify(Graphics g) {
 		drawRShell(g);
 		drawTileGrid(g);
@@ -478,11 +477,12 @@ public class Engine implements KeyListener, MouseListener{
 				System.out.println("Restarting...");
 				won = false;
 				txg.clearGrid();
+				hs.saveScores(formattedScore());
 				cscore = 0;
-				txg.test();
 				TextGame.moveCount = 0;
 				TextGame.highestTile = 0;
 				TextGame.score = 0;
+				txg.test();
 				state = GameState.RUN;
 				display.repaint();
 			} else if(state ==  GameState.QUIT) {
@@ -669,6 +669,11 @@ public class Engine implements KeyListener, MouseListener{
 			} else {
 				won = false;
 				txg.clearGrid();
+				hs.saveScores(formattedScore());
+				cscore = 0;
+				TextGame.moveCount = 0;
+				TextGame.highestTile = 0;
+				TextGame.score = 0;
 				txg.test();
 				state = GameState.RUN;
 				display.repaint();
@@ -679,11 +684,12 @@ public class Engine implements KeyListener, MouseListener{
 				System.out.println("RESTART\n"); //Used for debugging
 				won = false;
 				txg.clearGrid();
+				hs.saveScores(formattedScore());
 				cscore = 0;
-				txg.test();
 				TextGame.moveCount = 0;
 				TextGame.highestTile = 0;
 				TextGame.score = 0;
+				txg.test();
 				state = GameState.RUN;
 				display.repaint();
 			} else if((xpos >= display.getWidth()/2+40 && xpos <= display.getWidth()/2+120) && (ypos >= display.getHeight()/2+40 && ypos <= display.getHeight()/2+120)){
