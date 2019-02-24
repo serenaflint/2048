@@ -431,6 +431,17 @@ public class Engine implements KeyListener, MouseListener{
 				state = GameState.END;
 			}
 			break;
+		case KeyEvent.VK_R:
+			if(useSound) {
+				Sound.CLICK.play();
+			}
+			System.out.println("RESTART\n"); //Used for debugging
+			won = false;
+			txg.clearGrid();
+			cscore = 0;
+			txg.test();
+			display.repaint();
+			break;
 		default:
 			System.out.println("Key Pressed: " + KeyEvent.getKeyText(e.getKeyCode()));
 		}
