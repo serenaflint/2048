@@ -95,9 +95,11 @@ public class TextGame {
 		if(tileMoved) {
 			onClickTiles();
 			moveCount++;
-			System.out.println("Valid Move!");
+			System.out.println("Valid Move! Total Moves: " + moveCount);
+			System.out.println();
 		} else if(!tileMoved) {
-			System.out.println("Invalid Move!");
+			System.out.println("Invalid Move! Total Moves: " + moveCount);
+			System.out.println();
 		}
 	}
 	
@@ -132,9 +134,11 @@ public class TextGame {
 		if(tileMoved) {
 			onClickTiles();
 			moveCount++;
-			System.out.println("Valid Move!");
+			System.out.println("Valid Move! Total Moves: " + moveCount);
+			System.out.println();
 		} else if(!tileMoved) {
-			System.out.println("Invalid Move!");
+			System.out.println("Invalid Move! Total Moves: " + moveCount);
+			System.out.println();
 		}
 	}
 	
@@ -169,9 +173,11 @@ public class TextGame {
 		if(tileMoved) {
 			onClickTiles();
 			moveCount++;
-			System.out.println("Valid Move!");
+			System.out.println("Valid Move! Total Moves: " + moveCount);
+			System.out.println();
 		} else if(!tileMoved) {
-			System.out.println("Invalid Move!");
+			System.out.println("Invalid Move! Total Moves: " + moveCount);
+			System.out.println();
 		}
 	}
 	
@@ -207,9 +213,11 @@ public class TextGame {
 		if(tileMoved) {
 			onClickTiles();
 			moveCount++;
-			System.out.println("Valid Move!");
+			System.out.println("Valid Move! Total Moves: " + moveCount);
+			System.out.println();
 		} else if(!tileMoved) {
-			System.out.println("Invalid Move!");
+			System.out.println("Invalid Move! Total Moves: " + moveCount);
+			System.out.println();
 		}
 	}
 	
