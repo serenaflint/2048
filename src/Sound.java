@@ -1,4 +1,8 @@
-
+/**
+ * Sound.java
+ * Collaboration between partners; Jayda Medina and Serena Flint
+ * This class sets up music and sounds of the game.
+ */
 import java.io.File;
 import javax.sound.sampled.*;
 

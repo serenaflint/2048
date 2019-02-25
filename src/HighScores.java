@@ -1,3 +1,9 @@
+/**
+ * HighScores.java
+ * Collaboration between partners; Jayda Medina and Serena Flint
+ * This class sets up the highscore board/ menu option of the game.
+ */ 
+
 import java.io.*;
 import java.util.*;
 
