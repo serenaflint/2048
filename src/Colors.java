@@ -1,3 +1,9 @@
+/**
+ * Colors.java
+ * Collaboration between partners; Jayda Medina and Serena Flint
+ * This class sets up the colors and themes of the game.
+ */
+
 import java.awt.Color;
 
 public class Colors {

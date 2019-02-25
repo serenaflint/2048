@@ -1,3 +1,9 @@
+/**
+ * Display.java
+ * Collaboration between partners; Jayda Medina and Serena Flint
+ * This class sets up the JComponent required of the game.
+ */
+
 import java.awt.*;
 import javax.swing.JComponent;
 

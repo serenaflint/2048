@@ -1,3 +1,9 @@
+/**
+ * Engine.java
+ * Collaboration between partners; Jayda Medina and Serena Flint
+ * This class controls all the graphical components of the game.
+ */
+
 import java.awt.*;
 import java.awt.event.*;
 import java.util.*;

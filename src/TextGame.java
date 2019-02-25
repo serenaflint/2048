@@ -1,3 +1,9 @@
+/**
+ * TextGame.java
+ * Collaboration between partners; Jayda Medina and Serena Flint
+ * This class has the foundations and requirements of the game.
+ */
+
 import java.util.ArrayList;
 import java.util.Random;
 
