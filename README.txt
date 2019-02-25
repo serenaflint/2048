@@ -35,10 +35,12 @@ Paths: ...\serenaflint_jaydamedina_2048\src\Run.java
 
 How to Compile and Run:
 
-Import the serenaflint_jaydamedina_2048 folder into eclipse as a project and run Run.java!
+Import the serenaflint_jaydamedina_2048 folder into Eclipse as a project and run Run.java!
 
 NOTE: The graphical game will likely be a little larger, but completely playable on 1920x1080 displays.
       (Testing was done using both 3840x2160 and 1920x1080 displays, and both worked fine)
+
+NOTE: If the sound doesn't work, it's almost definitely a path issue, but it worked when I tested it in Eclipse.
 =======================================
 
 Controls: 
