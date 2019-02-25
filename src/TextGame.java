@@ -27,6 +27,7 @@ public class TextGame {
 				randRow = rand.nextInt(4);	
 				randCol = rand.nextInt(4);
 				ArrayList<Integer> twosFours = new ArrayList<Integer>();
+				//80% chance of 2, 20% chance of 4
 				for(int i = 0; i < 10; i++) {
 					if(i < 8) {
 						twosFours.add(2);
@@ -47,11 +48,13 @@ public class TextGame {
 	public void moveDown() {
 		int val = 0;
 		boolean tileMoved = false;
-		//for each col, for each row, starting at gameGrid[3][0], compares it to each digit in the col
+		//for each col
 		for (int col = 0; col < gameGrid.length; col++) {// col loop
+			//for each row, starting at gameGrid[3][0] 
 			for (int row = gameGrid.length-1; row >= 0; row--) {// row loop
+				//compares it to each digit in the col
 				for(int compare = row-1; compare>=0; compare--) {
-					
+					//Checks for an empty tile and lides over if there is one
 					if (gameGrid[row][col] == 0) {
 						if(gameGrid[compare][col] != 0)
 							tileMoved = true;
@@ -60,6 +63,7 @@ public class TextGame {
 						if(gameGrid[row][col] > highestTile)
 							highestTile = gameGrid[row][col];
 					}// end of if
+					// If the tiles are the same, combines and counts score
 					else if (gameGrid[row][col] == gameGrid[compare][col]) {
 						val = (gameGrid[row][col]) * 2;
 						gameGrid[compare][col] = 0;
@@ -71,6 +75,7 @@ public class TextGame {
 							highestTile = gameGrid[row][col];
 						break;
 					} // end of else
+					//Does nothing if theres no move
 					else if (gameGrid[row][col] != gameGrid[compare][col] && gameGrid[row][col]!=0 && gameGrid[compare][col]!=0) {
 						if(gameGrid[row][col] > highestTile)
 							highestTile = gameGrid[row][col];
