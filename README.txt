@@ -20,9 +20,15 @@ click.wav: sound file
 highscores.txt: contains all of the high scores written from trials across saves
 
 
-Path: ...\serenaflint_jaydamedina_2048\Run.java
-      ...\serenaflint_jaydamedina_2048\Colors.java
+Paths: ...\serenaflint_jaydamedina_2048\src\Run.java
+      ...\serenaflint_jaydamedina_2048\src\Colors.java
       ...
+      (all .java files follow this format)
+      ...
+      ...\serenaflint_jaydamedina_2048\background.wav
+      ...\serenaflint_jaydamedina_2048\click.wav
+      ...\serenaflint_jaydamedina_2048\highscores.txt
+
 
 
 =======================================
