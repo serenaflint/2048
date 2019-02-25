@@ -1,3 +1,9 @@
+/**
+ * Write.java
+ * Collaboration between partners; Jayda Medina and Serena Flint
+ * This class has all of the methods that control writing and reading files.
+ */
+
 import java.io.*;
 
 public class Write {

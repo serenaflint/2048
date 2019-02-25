@@ -1,3 +1,9 @@
+/**
+ * Run.java
+ * Collaboration between partners; Jayda Medina and Serena Flint
+ * This class contains the main method of the game and runs it.
+ */
+
 import javax.swing.*;
 import java.awt.*;
 
